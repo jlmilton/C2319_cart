@@ -18,7 +18,7 @@ python manage.py runserver
 ```
 python3 manage.py runserver
 ```
-Then, type just type the url address in your browser.
+Then, just type the url address in your browser.
 
 # Admin
 >User name - admin
