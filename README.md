@@ -7,3 +7,14 @@
 * Python
 * MSQLite
 * Bootstrap
+
+# Setup
+
+The first time you run the webapp you will need to run the following command:
+```
+python manage.py runserver
+```
+>for python3 do the following
+```
+python3 manage.py runserver
+```
