@@ -5,7 +5,7 @@ Our team has decided to develop an online platform where students, faculty, and 
 # Technologies
 * Django
 * Python
-* MSQLite
+* SQL server
 * Bootstrap
 
 # Setup
