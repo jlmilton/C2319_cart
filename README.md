@@ -18,3 +18,9 @@ python manage.py runserver
 ```
 python3 manage.py runserver
 ```
+Then, type just type the url address in your browser.
+
+# Admin
+>User name - admin
+>Email address - admin@email.sc.edu
+>Password - admin1234
