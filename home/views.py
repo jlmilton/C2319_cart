@@ -21,7 +21,7 @@ members = [
 	},
 	{
 		'name':			'Matt',
-		'content':		'Hello  my name is matt and i am a senior CIS major.'
+		'content':		'Hello  my name is matt and I am a senior CIS major.'
 	}
 ]
 
