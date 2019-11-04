@@ -6,17 +6,5 @@
 		<big><b>{{ab.about_title}}</b></big>
 		<p>{{ab.about_content|safe}}</p>
 		<br>
-
-	{% comment %} {% for x in members %}
-		<article class="media content-section">
-		  <div class="media-body">
-			<div class="article-metadata">
-			  <a class="mr-2" href="#">{{ x.name }}</a>
-			  <!-- <small class="text-muted">{{ x.date_posted }}</small> -->
-			</div>
-			<!-- <h2><a class="article-title" href="#">{{ x.title }}</a></h2> -->
-			<p class="article-content">{{ x.content }}</p>
-		  </div>
-		</article> {% endcomment %}
 	{% endfor %}
 {% endblock content %}
