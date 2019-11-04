@@ -5,7 +5,7 @@ from .models import About
 # Create your views here.	
 
 def home(request):
-	return render(request, 'home/home.html', {'title': 'Home Page'})
+	return render(request, 'home/home.html', {'title': 'Home'})
 	
 def about(request):
 	return render(request = request,
