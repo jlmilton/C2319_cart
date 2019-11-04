@@ -2,7 +2,12 @@
 {% block content %}
 	<h1>About the Team!</h1>
 	<br>
-	{% for x in members %}
+	{% for ab in about %}
+		<big><b>{{ab.about_title}}</b></big>
+		<p>{{ab.about_content|safe}}</p>
+		<br>
+
+	{% comment %} {% for x in members %}
 		<article class="media content-section">
 		  <div class="media-body">
 			<div class="article-metadata">
@@ -12,6 +17,6 @@
 			<!-- <h2><a class="article-title" href="#">{{ x.title }}</a></h2> -->
 			<p class="article-content">{{ x.content }}</p>
 		  </div>
-		</article>
+		</article> {% endcomment %}
 	{% endfor %}
 {% endblock content %}
