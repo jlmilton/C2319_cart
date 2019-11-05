@@ -12,6 +12,10 @@ ul {
   margin: 0;
 }
 
+.bg-custom-garnet {
+  background-color: #54161f !important;
+}
+
 .bg-steel {
   background-color: #5f788a;
 }
