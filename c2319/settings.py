@@ -25,7 +25,7 @@ SECRET_KEY = 'st_&v02sluw_3nky1(yk&51bvvr14g^&=&$y$wfi3f9!hax)5^'
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = []
+ALLOWED_HOSTS = ['127.0.0.1']
 
 
 # Application definition
@@ -83,8 +83,14 @@ WSGI_APPLICATION = 'c2319.wsgi.application'
 
 DATABASES = {
      'default': {
-         'ENGINE': 'django.db.backends.sqlite3',
-         'NAME': os.path.join(BASE_DIR, 'db.sqlite3'),
+         'ENGINE': 'django.db.backends.mysql',
+         'HOST': '127.0.0.1',
+         'PORT': '3306',
+         'NAME': 'c_2319',
+        #  'NAME': os.path.join(BASE_DIR, 'db.c_2319'),
+         'USER': 'root',
+         'PASSWORD': 'root',
+         'OPTIONS': {'init_command': "SET sql_mode='STRICT_TRANS_TABLES'",},
      }
  }
 
