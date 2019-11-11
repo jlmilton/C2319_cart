@@ -30,7 +30,7 @@
 			<div class="navbar-nav mr-auto">
 			  <a class="nav-item nav-link" href="{% url 'home-home' %}">Home</a>
 			  <a class="nav-item nav-link" href="{% url 'home-about' %}">About</a>
-        <a class="nav-item nav-link" href="#">My Posts</a>
+        <a class="nav-item nav-link" href="{% url 'post_list' %}">My Posts</a>
 			</div>
 
 			<!-- Navbar Right Side -->
@@ -44,6 +44,10 @@
 	  </nav>
 	</header>
 	<main role="main" class="container">
+    <div>
+      {% block content1 %}{% endblock %}
+      {% block content2 %}{% endblock %}
+    </div>
 	  <div class="row">
 		<div class="col-md-8">
 		  {% block content %}{% endblock %}
