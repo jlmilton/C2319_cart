@@ -35,8 +35,8 @@
 
 			<!-- Navbar Right Side -->
 			<div class="navbar-nav">
-			  <a class="nav-item nav-link" href="#">Login</a>
-			  <a class="nav-item nav-link" href="#">Register</a>
+			  <a class="nav-item nav-link" href="{% url 'login' %}">Login</a>
+			  <a class="nav-item nav-link" href="{% url 'signup' %}">Register</a>
 
 			</div>
 		  </div>
@@ -47,6 +47,8 @@
     <div>
       {% block content1 %}{% endblock %}
       {% block content2 %}{% endblock %}
+      {% block content4 %}{% endblock %}
+
       {% block content3 %}{% endblock %}
 
     </div>
