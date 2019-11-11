@@ -2,7 +2,8 @@
 {% extends 'home_page/base.html' %}
 
 {% block content1 %}
-<h1>Articles</h1>
+<h1>My Items</h1>
+<br>
 {% for post in object_list %}
   <ul>
     <li><a href="{{ post.get_absolute_url }}">{{ post.title }}</a></li>

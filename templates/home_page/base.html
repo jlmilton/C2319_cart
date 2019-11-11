@@ -45,26 +45,27 @@
 	</header>
 	<main role="main" class="container">
     <div>
-      {% block content1 %}{% endblock %}
-      {% block content2 %}{% endblock %}
-      {% block content4 %}{% endblock %}
-
-      {% block content3 %}{% endblock %}
 
     </div>
 	  <div class="row">
 		<div class="col-md-8">
 		  {% block content %}{% endblock %}
+      {% block content1 %}{% endblock %}
+      {% block content2 %}{% endblock %}
+      {% block content4 %}{% endblock %}
+      {% block content3 %}{% endblock %}
+
+
 		</div>
-		<div class="col-md-4">
+		<div class="col-md-2 mt-3 left">
 		  <div class="content-section">
 			<h3>Our Sidebar</h3>
-			<p class='text-muted'>You can put any information here you'd like.
+			<p class='text-muted'>WE might use it later on
 			  <ul class="list-group">
-				<li class="list-group-item list-group-item-light">Let's</li>
-				<li class="list-group-item list-group-item-light">Decide If We</li>
-				<li class="list-group-item list-group-item-light">Need</li>
-				<li class="list-group-item list-group-item-light">This</li>
+				<li class="list-group-item list-group-item-light" href="#">option1</li>
+				<li class="list-group-item list-group-item-light">option2</li>
+				<li class="list-group-item list-group-item-light">option3</li>
+				<li class="list-group-item list-group-item-light">option4</li>
 			  </ul>
 			</p>
 		  </div>

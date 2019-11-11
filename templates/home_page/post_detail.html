@@ -1,8 +1,21 @@
 <!-- article_detail.html -->
 {% extends 'home_page/base.html' %}
 {% block content2 %}
-<div>
-  <h2>{{ object.title }}</h2>
-  <p>{{ object.body }}</p>
+<div class="container">
+    <div class="row">
+      <div class="col-md-14 mt-3 left">
+        <div class="card mb-4">
+          <div class="card-body">
+            <h2 class="card-title">{{ object.title }}</h2>
+            <h4>Description:</h4>
+            <p class="card-text text-muted h6">{{ object.body }}</p>
+            <h3>Images:</h3>
+            <img src="{{ object.cover}}" alt="{{ object.title }}">
+            <h3>Category:</h3>
+            <p class="card-text text-muted h6">{{ object.category }}</p>
+        </div>
+      </div>
+    </div>
+  </div>
 </div>
 {% endblock %}
