@@ -6,6 +6,4 @@ def home(request):
 	return render(request, '../templates/home_page/home.html', {'title': 'Home'})
 
 def about(request):
-	return render(request = request,
-				  template_name='../templates/home_page/about.html',
-				  context = {'about': About.objects.all})
+	return render(request, '../templates/home_page/about.html', {'title': 'About'}, {'about': About.objects.all})
