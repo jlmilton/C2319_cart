@@ -22,7 +22,7 @@ class Post(models.Model):
     updated_on = models.DateTimeField(auto_now= True)
     created_on = models.DateTimeField(auto_now_add=True, null=True)
     category = models.IntegerField(choices=CATEGORY, default=0)
-    cover = models.ImageField(upload_to='images/', null=True)
+    cover = models.ImageField(upload_to='media/images/', null=True)
 
     class Meta:
         ordering = ['-created_on']

@@ -1,0 +1,10 @@
+{% extends 'home_page/base.html' %}
+{% block content %}
+	<h1>About the Team!</h1>
+	<br>
+	{% for ab in about %}
+		<big><b>{{ab.about_title}}</b></big>
+		<p>{{ab.about_content|safe}}</p>
+		<br>
+	{% endfor %}
+{% endblock content %}

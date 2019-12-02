@@ -41,6 +41,7 @@ INSTALLED_APPS = [
     # 'bootstrap4',
     'posts.apps.PostsConfig',
     'accounts.apps.AccountsConfig',
+    'boards',
 
 ]
 

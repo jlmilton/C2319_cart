@@ -1,4 +1,6 @@
 <!-- article_detail.html -->
+
+
 {% extends 'home_page/base.html' %}
 {% block content2 %}
 <div class="container">
@@ -6,13 +8,16 @@
       <div class="col-md-14 mt-3 left">
         <div class="card mb-4">
           <div class="card-body">
-            <h2 class="card-title">{{ object.title }}</h2>
+            <h2 class="pt-3-half" contenteditable="true" class="card-title">{{ object.title }}</h2>
             <h4>Description:</h4>
-            <p class="card-text text-muted h6">{{ object.body }}</p>
+            <p class="pt-3-half" contenteditable="true" class="card-text text-muted h6">{{ object.body }}</p>
             <h3>Images:</h3>
             <img src="{{ object.cover}}" alt="{{ object.title }}">
             <h3>Category:</h3>
             <p class="card-text text-muted h6">{{ object.category }}</p>
+            <button type="button" class="btn btn-success btn-rounded btn-sm my-0">Save</button>
+            <button type="button" class="btn btn-danger btn-rounded btn-sm my-0">Delete</button>
+            <button type="button" class="btn btn-info btn-rounded btn-sm my-0">Share</button>
         </div>
       </div>
     </div>
