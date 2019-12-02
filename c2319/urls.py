@@ -28,4 +28,5 @@ urlpatterns = [
     # path('', TemplateView.as_view(template_name='home.html'), name='home'), # new
     url(r'^homepage/$', views.home, name='home'),
     # url(r'^boards/(?P<pk>\d+)/$', views.board_topics, name='board_topics'),
+    # url(r'^' , include('posts.urls')),
 ]

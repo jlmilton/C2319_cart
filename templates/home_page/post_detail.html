@@ -9,12 +9,19 @@
         <div class="card mb-4">
           <div class="card-body">
             <h2 class="pt-3-half" contenteditable="true" class="card-title">{{ object.title }}</h2>
+            <br>
             <h4>Description:</h4>
-            <p class="pt-3-half" contenteditable="true" class="card-text text-muted h6">{{ object.body }}</p>
-            <h3>Images:</h3>
-            <img src="{{ object.cover}}" alt="{{ object.title }}">
+            <p class="pt-6-half" contenteditable="true" class="card-text text-muted h6">{{ object.body }}</p>
+            <p><h4>Price:</h4></p>
+            <span>&#36;</span><span class="pt-6-half" contenteditable="true" class="card-text text-muted h6">{{ object.price }}</span>
+            <br><br>
+            <p><h4>Condition:<h4></p>
+            <p class="pt-6-half" contenteditable="true" class="card-text text-muted h6">{{ object.condition }}</p>
             <h3>Category:</h3>
             <p class="card-text text-muted h6">{{ object.category }}</p>
+            <h3>Images:</h3>
+            <img src="{{ object.cover}}" alt="{{ object.title }}">
+            <br><br>
             <button type="button" class="btn btn-success btn-rounded btn-sm my-0">Save</button>
             <button type="button" class="btn btn-danger btn-rounded btn-sm my-0">Delete</button>
             <button type="button" class="btn btn-info btn-rounded btn-sm my-0">Share</button>
