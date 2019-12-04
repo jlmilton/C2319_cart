@@ -18,6 +18,8 @@ from django.urls import path, include
 from django.views.generic.base import TemplateView # new
 from django.conf.urls import url
 from boards import views
+from django.conf import settings # new
+from django.conf.urls.static import static # new
 
 urlpatterns = [
     path('admin/', admin.site.urls),
@@ -30,3 +32,5 @@ urlpatterns = [
     # url(r'^boards/(?P<pk>\d+)/$', views.board_topics, name='board_topics'),
     # url(r'^' , include('posts.urls')),
 ]
+if settings.DEBUG: # new
+    urlpatterns += static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)

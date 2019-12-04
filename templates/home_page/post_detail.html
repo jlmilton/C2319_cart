@@ -16,11 +16,16 @@
             <span>&#36;</span><span class="pt-6-half" contenteditable="true" class="card-text text-muted h6">{{ object.price }}</span>
             <br><br>
             <p><h4>Condition:<h4></p>
-            <p class="pt-6-half" contenteditable="true" class="card-text text-muted h6">{{ object.condition }}</p>
+            <p class="pt-6-half" class="card-text text-muted h6">{{ object.get_condition_display }}</p>
             <h3>Category:</h3>
-            <p class="card-text text-muted h6">{{ object.category }}</p>
+            <p class="pt-6-half" class="card-text text-muted h6">{{ object.get_category_display }}</p>
+
             <h3>Images:</h3>
-            <img src="{{ object.cover}}" alt="{{ object.title }}">
+            {% if object.cover %}
+            <img src="{{ object.cover.url}}" alt="{{ object.title }}" style="float:center;width:50%;height:100%;object-fit:cover;">
+            {% else %}
+            <img src="/media/images/no-image-available-icon-6.jpg" />
+            {% endif %}
             <br><br>
             <button type="button" class="btn btn-success btn-rounded btn-sm my-0">Save</button>
             <button type="button" class="btn btn-danger btn-rounded btn-sm my-0">Delete</button>
