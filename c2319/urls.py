@@ -15,22 +15,23 @@ Including another URLconf
 """
 from django.contrib import admin
 from django.urls import path, include
-from django.views.generic.base import TemplateView # new
+from django.views.generic.base import TemplateView  # new
 from django.conf.urls import url
 from boards import views
-from django.conf import settings # new
-from django.conf.urls.static import static # new
+from django.conf import settings  # new
+from django.conf.urls.static import static  # new
 
 urlpatterns = [
     path('admin/', admin.site.urls),
     path('', include('home_page.urls')),
     path('post/', include('posts.urls')),
-    path('accounts/', include('accounts.urls')), # new
-    path('accounts/', include('django.contrib.auth.urls')), # new
+    path('accounts/', include('accounts.urls')),  # new
+    path('accounts/', include('django.contrib.auth.urls')),  # new
     # path('', TemplateView.as_view(template_name='home.html'), name='home'), # new
     url(r'^homepage/$', views.home, name='home'),
     # url(r'^boards/(?P<pk>\d+)/$', views.board_topics, name='board_topics'),
     # url(r'^' , include('posts.urls')),
 ]
-if settings.DEBUG: # new
-    urlpatterns += static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
+if settings.DEBUG:  # new
+    urlpatterns += static(settings.MEDIA_URL,
+                          document_root=settings.MEDIA_ROOT)
