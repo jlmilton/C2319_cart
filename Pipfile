@@ -4,15 +4,10 @@ url = "https://pypi.org/simple"
 verify_ssl = true
 
 [dev-packages]
-autopep8 = "*"
-mysqlclient = "*"
 
 [packages]
-django = "2.2.8"
-python3-dev = "*"
-python-dev = "*"
-mysql-server = "*"
-libmysqlclient-dev = "*"
+Django = "==2.2.8"
+Pillow = "==6.2.1"
 
 [requires]
 python_version = "3.7"
