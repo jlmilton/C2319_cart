@@ -1,6 +1,7 @@
 from django.db import models
 from django.urls import reverse
 from django.template.defaultfilters import slugify # new
+from django.template.defaulttags import register
 
 STATUS = (
     (0,"Draft"),
@@ -14,6 +15,13 @@ CATEGORY = (
     (4,"Books"),
     (5,"Motors")
 )
+CONDITION = {
+    (0,"Brand New"),
+    (1, "Used - Like New"),
+    (2, "Used - Good"),
+    (3, "Used - working"),
+    (4, "Used - Not Working")
+}
 
 class Post(models.Model):
     title = models.CharField(max_length=255)
@@ -22,7 +30,12 @@ class Post(models.Model):
     updated_on = models.DateTimeField(auto_now= True)
     created_on = models.DateTimeField(auto_now_add=True, null=True)
     category = models.IntegerField(choices=CATEGORY, default=0)
-    cover = models.ImageField(upload_to='images/', null=True)
+    cover = models.ImageField(upload_to='images/', null=True , blank=True)
+    condition = models.IntegerField(choices=CONDITION , default = 4)
+    price = models.FloatField(null=True ,blank=True)
+    @property
+    def dollar_amount(self):
+        return "$%s" % self.price if self.price else ""
 
     class Meta:
         ordering = ['-created_on']
@@ -31,8 +44,13 @@ class Post(models.Model):
     def __str__(self):
         return self.title
 
+
     def get_absolute_url(self):
         return reverse('post_detail', kwargs={'slug': self.slug})
+
+    @register.filter
+    def get_item(dictionary, key):
+        return dictionary.get(key)
 
     def save(self, *args, **kwargs): # new
         if not self.slug:
