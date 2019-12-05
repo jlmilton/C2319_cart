@@ -9,6 +9,10 @@ mysqlclient = "*"
 
 [packages]
 django = "*"
+python3-dev = "*"
+python-dev = "*"
+mysql-server = "*"
+libmysqlclient-dev = "*"
 
 [requires]
 python_version = "3.7"
