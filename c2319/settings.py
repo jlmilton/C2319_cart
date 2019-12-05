@@ -80,16 +80,21 @@ WSGI_APPLICATION = 'c2319.wsgi.application'
 # https://docs.djangoproject.com/en/2.2/ref/settings/#databases
 
 DATABASES = {
-         'default': {
-             'ENGINE': 'django.db.backends.mysql',
-             'HOST': '127.0.0.1',
-             'PORT': '3306',
-             'NAME': 'c_2319',
-             'USER': 'root',
-             'PASSWORD': 'root',
-             #'OPTIONS': {'init_command': "SET sql_mode='STRICT_TRANS_TABLES'",},
-         }
-     }
+    'default': {
+        'ENGINE': 'django.db.backends.mysql',
+        'NAME': 'c_2319',
+        'USER': 'root',
+        # 'PASSWORD': '',
+        'HOST': '',
+        'PORT': '',
+        'PASSWORD': 'root',
+        #'HOST': '127.0.0.1',
+        #'PORT': '3306',
+        'OPTIONS': {
+            'init_command': "SET sql_mode='STRICT_TRANS_TABLES'",
+        },
+    }
+}
 
 
 # Password validation
