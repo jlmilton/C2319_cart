@@ -16,18 +16,22 @@ class PostDetailView(DetailView):
 
 def add_post(request):
     if request.method == "POST":
-        form = PostForm(request.POST)
+        # form = PostForm(request.POST)
+        form = PostForm(request.POST or None, request.FILES or None)
         if form.is_valid() :
             post_item = form.save(commit=False)
             post_item.save()
-            # return redirect('/post/' + slug + '/')
+            return redirect('/post/' + str(post_item).lower() + '/')
     else:
         form = PostForm()
-    return render (request, 'post/post_form.html' , {'form' : form})
+    # return render (request, 'post/post_form.html' , {'form' : form})
+    return render (request, 'home_page/post_form.html' , {'form' : form})
 
-def edit_post(request , id=None):
-    item = get_object_or_404(Post , id=id)
-    form = PostForm(request.POST or None , instance=item)
+def edit_post(request , slug=None):
+    item = get_object_or_404(Post , slug=slug)
+    form = PostForm(request.POST or None , request.FILES or None ,instance=item)
     if form.is_valid():
         form.save()
-    return render (request, 'post/post_form.html' , {'form' : form})
+        return redirect('/post/' + str(slug) + '/')
+    #return render (request, 'post/post_form.html' , {'form' : form})
+    return render (request, 'home_page/post_form.html' , {'form' : form})

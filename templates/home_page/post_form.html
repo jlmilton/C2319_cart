@@ -1,0 +1,52 @@
+{% extends 'home_page/base.html' %}
+{% block content1 %}
+
+<!-- <form method="POST" action="">
+  {% csrf_token %}
+  {{ form }}
+  <input type="submit" value="Save">
+</form> -->
+<form method="POST" enctype="multipart/form-data">
+{% csrf_token %}
+{{ form.non_field_errors }}
+<div class="field_wrapper">
+  {{ form.non_field_errors }}
+  <label fpr="{{ form.title.id_for_label }}">Item for sale:</label>
+  {{ form.title }}
+</div>
+
+<div class="field_wrapper">
+  {{ form.non_field_errors }}
+  <label fpr="{{ form.body.id_for_label }}">Description:</label>
+  {{ form.body }}
+</div>
+
+<div class="field_wrapper">
+  {{ form.non_field_errors }}
+  <label fpr="{{ form.price.id_for_label }}">Price:</label>
+  {{ form.price }}
+</div>
+
+<div class="field_wrapper">
+  {{ form.non_field_errors }}
+  <label fpr="{{ form.condition.id_for_label }}">Condition:</label>
+  {{ form.condition }}
+</div>
+
+<div class="field_wrapper">
+  {{ form.non_field_errors }}
+  <label fpr="{{ form.category.id_for_label }}">Category:</label>
+  {{ form.category }}
+</div>
+
+<div class="field_wrapper">
+  {{ form.non_field_errors }}
+  <label method="POST" enctype="multipart/form-data" fpr="{{ form.cover.id_for_label }}">
+    Image:</label>
+  {{ form.cover }}
+
+</div>
+<input type="submit" value="Save">
+</form>
+
+{% endblock %}
