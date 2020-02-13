@@ -4,15 +4,12 @@ url = "https://pypi.org/simple"
 verify_ssl = true
 
 [dev-packages]
-autopep8 = "*"
-<<<<<<< HEAD
-v = {editable = true,version = "*"}
-=======
-mysqlclient = "*"
->>>>>>> parent of a748a1d... Merge branch 'mysql'
 
 [packages]
-django = "==2.2.8"
+django ==3.0.3
+django-crispy-forms==1.6.0
+django-filter==0.13.0
+
 
 [requires]
 python_version = "3.7"

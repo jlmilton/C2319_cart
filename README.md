@@ -1,10 +1,7 @@
-# new_c-2319
+# new_c2319
+activate virtual env - source bin/activate
+deactivate vertual env - deactivate
 
-test for posts:
-python3 manage.py test home_page/
-
-test for home_page:
-python3 manage.py test posts
-
-behavioral test:
-lettuce mymath/tests/
+Install everything using pip:
+  pip3 freeze > requirements.txt 
+  pip3 install -r requirements.txt

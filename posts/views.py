@@ -1,19 +1,10 @@
+from django.shortcuts import render
+from .forms import PostForm
+from django.shortcuts import render , get_object_or_404 , redirect
 from django.views.generic import ListView, DetailView
 from .models import Post
-from django.shortcuts import render , get_object_or_404 , redirect
-from .forms import PostForm
+
 # Create your views here.
-
-
-class PostListView(ListView):
-    model = Post
-    template_name = 'home_page/post_list.html'
-
-
-class PostDetailView(DetailView):
-    model = Post
-    template_name = 'home_page/post_detail.html'
-
 def add_post(request):
     if request.method == "POST":
         # form = PostForm(request.POST)
@@ -21,17 +12,25 @@ def add_post(request):
         if form.is_valid() :
             post_item = form.save(commit=False)
             post_item.save()
-            return redirect('/post/' + str(post_item).lower() + '/')
+            return redirect('/post/')
     else:
         form = PostForm()
-    # return render (request, 'post/post_form.html' , {'form' : form})
-    return render (request, 'home_page/post_form.html' , {'form' : form})
+    return render (request, '../templates/post_form.html' , {'form' : form})
 
-def edit_post(request , slug=None):
-    item = get_object_or_404(Post , slug=slug)
+
+class PostDetailView(DetailView):
+    model = Post
+    template_name = '../templates/post_detail.html'
+
+class PostListView(ListView):
+    model = Post
+    template_name = '../templates/post_list.html'
+
+def edit_post(request , pk=None):
+    item = get_object_or_404(Post , pk=pk)
     form = PostForm(request.POST or None , request.FILES or None ,instance=item)
     if form.is_valid():
         form.save()
-        return redirect('/post/' + str(slug) + '/')
+        return redirect('/post/' + str(pk) + '/')
     #return render (request, 'post/post_form.html' , {'form' : form})
-    return render (request, 'home_page/post_form.html' , {'form' : form})
+    return render (request, '../templates/post_form.html' , {'form' : form})

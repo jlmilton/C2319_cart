@@ -1,0 +1,58 @@
+{% extends 'base.html' %}
+{% block content %}
+<br><br><br>
+{% if user.is_authenticated %}
+<div class="container">
+    <div class="row">
+      <div class="col-md-14 mt-3 left">
+        <div class="card mb-4">
+          <div class="card-body">
+            <h2 class="pt-3-half" contenteditable="true" class="card-title">{{ object.title }}</h2>
+            <br>
+            <h4>Description:</h4>
+            <p class="pt-6-half" contenteditable="true" class="card-text text-muted h6">{{ object.body }}</p>
+            <p><h4>Price:</h4></p>
+
+            {% if object.price == None %}
+            <span>&#36;</span><span class="pt-6-half" contenteditable="true" class="card-text text-muted h6">0</span>
+            {% else %}
+            <span>&#36;</span><span class="pt-6-half" contenteditable="true" class="card-text text-muted h6">{{ object.price }}</span>
+            {% endif %}
+
+            <br><br>
+            <p><h4>Condition:<h4></p>
+            {% if object.get_condition_display == 'Used - Not Working' %}
+            <p class="pt-6-half" class="card-text text-muted h6"><font color="red">{{ object.get_condition_display }}</font></p>
+            {% elif object.get_condition_display == 'Used - working' %}
+            <p class="pt-6-half" class="card-text text-muted h6"><font color="#b38f00">{{ object.get_condition_display }}</font></p>
+            {% elif object.get_condition_display == 'Brand New' %}
+            <p class="pt-6-half" class="card-text text-muted h6"><font color="green">{{ object.get_condition_display }}</font></p>
+            {% elif object.get_condition_display == 'Used - Like New' %}
+            <p class="pt-6-half" class="card-text text-muted h6"><font color="#0099cc	">{{ object.get_condition_display }}</font></p>
+            {% elif object.get_condition_display == 'Used - Good' %}
+            <p class="pt-6-half" class="card-text text-muted h6"><font color="##9900cc	">{{ object.get_condition_display }}</font></p>
+            {% endif %}
+
+            <h3>Category:</h3>
+            <p class="pt-6-half" class="card-text text-muted h6">{{ object.get_category_display }}</p>
+
+
+            <h3>Images:</h3>
+            {% if object.cover %}
+            <img src="{{ object.cover.url}}" alt="{{ object.title }}" style="float:center;width:50%;height:100%;object-fit:cover;">
+            {% else %}
+            <img src="/media/images/no-image-available-icon-6.jpg"/>
+            {% endif %}
+            <br><br>
+            <a type="button" class="btn btn-success btn-rounded btn-sm my-0" href="{% url 'edit_post' post.pk %}">Edit</a>
+            <button type="button" class="btn btn-danger btn-rounded btn-sm my-0" >Delete</button>
+            <button type="button" class="btn btn-info btn-rounded btn-sm my-0">Share</button>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+{% else %}
+  <p>You are not allowed to see this post</p>
+{% endif %}
+{% endblock %}
