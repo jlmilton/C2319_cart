@@ -1,4 +1,4 @@
-# new_c2319
+# c2319
 activate virtual env - source bin/activate
 deactivate vertual env - deactivate
 
