@@ -1,10 +1,9 @@
 {% extends 'base.html' %}
-{% load crispy_forms_tags %}
 {% block content %}
 <br><br><br>
 <form method="POST" enctype="multipart/form-data">
 {% csrf_token %}
-<!-- {{ form|crispy }} -->
+
 <div class="field_wrapper">
   <label fpr="{{ form.title.id_for_label }}">Item for sale:</label>
   {{ form.title }}
