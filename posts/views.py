@@ -6,12 +6,18 @@ from .models import Post
 
 # Create your views here.
 def add_post(request):
+
     if request.method == "POST":
         # form = PostForm(request.POST)
         form = PostForm(request.POST or None, request.FILES or None)
         if form.is_valid() :
             post_item = form.save(commit=False)
-            post_item.save()
+            # a = post_item.save()
+            n = form.cleaned_data["title"]
+            m = form.cleaned_data["cover"]
+            t = Post(title=n, body=n , price=n, condition=n , category=n, cover=m)
+            t.save()
+            request.user.post.add(t)
             return redirect('/post/')
     else:
         form = PostForm()
@@ -19,8 +25,8 @@ def add_post(request):
 
 
 class PostDetailView(DetailView):
-    model = Post
-    template_name = '../templates/post_detail.html'
+        model = Post
+        template_name = '../templates/post_detail.html'
 
 class PostListView(ListView):
     model = Post
