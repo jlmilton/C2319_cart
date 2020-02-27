@@ -31,3 +31,4 @@ class Post(models.Model):
     cover = models.ImageField(upload_to='images/', null=True , blank=True)
     condition = models.IntegerField(choices=CONDITION , default = 4)
     price = models.FloatField(null=True ,blank=True)
+    publish = models.IntegerField(choices=STATUS, default=0)

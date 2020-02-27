@@ -15,7 +15,12 @@ def add_post(request):
             # a = post_item.save()
             n = form.cleaned_data["title"]
             m = form.cleaned_data["cover"]
-            t = Post(title=n, body=n , price=n, condition=n , category=n, cover=m)
+            a = form.cleaned_data["category"]
+            b = form.cleaned_data["condition"]
+            c = form.cleaned_data["price"]
+            d = form.cleaned_data["body"]
+            e = form.cleaned_data["publish"]
+            t = Post(title=n, body=d , price=c, condition=b , category=a, cover=m, publish=e)
             t.save()
             request.user.post.add(t)
             return redirect('/post/')
@@ -31,6 +36,11 @@ class PostDetailView(DetailView):
 class PostListView(ListView):
     model = Post
     template_name = '../templates/post_list.html'
+
+class ForSaleListView(ListView):
+    model = Post
+    template_name = '../templates/forsale.html'
+
 
 def edit_post(request , pk=None):
     item = get_object_or_404(Post , pk=pk)

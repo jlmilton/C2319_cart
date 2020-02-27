@@ -1,6 +1,6 @@
 from django.conf.urls import url
 from . import views
-from .views import PostDetailView, PostListView
+from .views import PostDetailView, PostListView, ForSaleListView
 from django.urls import path , re_path
 
 
@@ -9,4 +9,5 @@ urlpatterns = [
     re_path(r'^(?P<pk>\d+)/$', PostDetailView.as_view(), name='post_detail'),
     path('', PostListView.as_view(), name='post_list'),
     url(r'^edit/(?P<pk>\d+)/$' , views.edit_post, name = 'edit_post'),
+    path('forsale' , ForSaleListView.as_view(), name='for_sale')
     ]
