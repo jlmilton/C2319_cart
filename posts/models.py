@@ -1,5 +1,5 @@
 from django.db import models
-
+from django.contrib.auth.models import User
 # Create your models here.
 STATUS = (
     (0,"Draft"),
@@ -22,6 +22,7 @@ CONDITION = {
 }
 
 class Post(models.Model):
+    user = models.ForeignKey(User, on_delete=models.CASCADE, related_name="post" , null=True)
     title = models.CharField(max_length=255)
     body = models.TextField(null=True)
     updated_on = models.DateTimeField(auto_now= True)
