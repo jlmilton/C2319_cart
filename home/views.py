@@ -9,3 +9,6 @@ def home(request):
 
 def about(request):
     return render(request, '../templates/about.html', {'title': 'About'})
+
+def forsale(request):
+    return render(request, '../templates/forsale.html', {'title': 'For Sale'})
