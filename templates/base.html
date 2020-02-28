@@ -25,7 +25,9 @@
         <a class="nav-item nav-link" href="{% url 'about' %}">About</a>
         {% if user.is_authenticated %}
         <a class="nav-item nav-link" href="{% url 'for_sale' %}">Items for sale</a>
+        {% endif %}
 			</div>
+      {% if user.is_authenticated %}
       <div class="navbar-nav">
         <a class="nav-item nav-link" href="{% url 'add_post' %}">New Posts</a>
         <a class="nav-item nav-link" href="{% url 'post_list' %}">My Posts</a>
