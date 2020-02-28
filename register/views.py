@@ -1,6 +1,10 @@
 from django.shortcuts import render, redirect
 from .forms import RegisterForm
 from .forms import UserProfileForm
+from django.views.generic import ListView, DetailView
+from .models import UserProfile
+
+
 
 # Create your views here.
 def register(response):
@@ -20,3 +24,7 @@ def register(response):
         profile_form = UserProfileForm()
     context = {'form' : form, 'profile_form' : profile_form}
     return render(response, 'register/register.html' , context)
+
+class ProfileView(ListView):
+        model = UserProfile
+        template_name = '../templates/registration/profilepage.html'

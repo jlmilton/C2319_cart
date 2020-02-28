@@ -1,5 +1,7 @@
 from django.db import models
 from django.contrib.auth.models import User
+from decimal import Decimal
+
 # Create your models here.
 STATUS = (
     (0,"Draft"),
@@ -30,5 +32,5 @@ class Post(models.Model):
     category = models.IntegerField(choices=CATEGORY, default=0)
     cover = models.ImageField(upload_to='images/', null=True , blank=True)
     condition = models.IntegerField(choices=CONDITION , default = 4)
-    price = models.FloatField(null=True ,blank=True)
+    price = models.DecimalField(max_digits=20, decimal_places=2, default=Decimal(0.00), null=True ,blank=True)
     publish = models.IntegerField(choices=STATUS, default=0)

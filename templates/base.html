@@ -2,6 +2,11 @@
 <!DOCTYPE html>
 <html>
 <head>
+  <style type="text/css">
+  #element1 {float:left; color:green;}
+  #element2 {float:left; color:SlateBlue;}
+  #element3 {float:left; color:Tomato;}
+  </style>
 
 	<!-- Required meta tags -->
     <meta charset="utf-8">
@@ -31,6 +36,7 @@
       <div class="navbar-nav">
         <a class="nav-item nav-link" href="{% url 'add_post' %}">New Posts</a>
         <a class="nav-item nav-link" href="{% url 'post_list' %}">My Posts</a>
+        <!-- <a class="nav-item nav-link" href="/profilepage">My Profile</a> -->
         <a class="nav-item nav-link" href="/logout">Logout</a>
 			</div>
       {% else %}
