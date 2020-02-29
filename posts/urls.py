@@ -9,5 +9,6 @@ urlpatterns = [
     re_path(r'^(?P<pk>\d+)/$', PostDetailView.as_view(), name='post_detail'),
     path('', PostListView.as_view(), name='post_list'),
     url(r'^edit/(?P<pk>\d+)/$' , views.edit_post, name = 'edit_post'),
-    path('forsale' , ForSaleListView.as_view(), name='for_sale')
+    path('forsale' , ForSaleListView.as_view(), name='for_sale'),
+    url(r'^delete/(?P<pk>\d+)/$' , views.delete_post, name = 'delete_post'),
     ]

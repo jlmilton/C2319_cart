@@ -44,7 +44,8 @@
               {% for post in user.post.all %}
                   {% if post.pk == object.pk %}
                     <a type="button" class="btn btn-success btn-rounded btn-sm my-0" href="{% url 'edit_post' post.pk %}">Edit</a>
-                    <button type="button" class="btn btn-danger btn-rounded btn-sm my-0" >Delete</button>
+                    <!-- <button type="button" class="btn btn-danger btn-rounded btn-sm my-0" href="{% url 'delete_post' post.pk %}">Delete</button> -->
+                    <a type="button" class="btn btn-danger btn-rounded btn-sm my-0" href="{% url 'delete_post' post.pk %}">Delete</a>
                     <button type="button" class="btn btn-info btn-rounded btn-sm my-0">Share</button>
                   {% endif %}
               {% endfor %}
