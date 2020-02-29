@@ -50,3 +50,10 @@ def edit_post(request , pk=None):
         return redirect('/post/' + str(pk) + '/')
     #return render (request, 'post/post_form.html' , {'form' : form})
     return render (request, '../templates/post_form.html' , {'form' : form})
+
+def delete_post(request, pk=None):
+    item = get_object_or_404(Post , pk=pk)
+    form = PostForm(request.POST or None , instance=item)
+    item.delete()
+    return redirect('/post/')
+    # return render (request, '../templates/post_list.html' , {'form' : form})
