@@ -46,17 +46,16 @@
                     <a type="button" class="btn btn-success btn-rounded btn-sm my-0" href="{% url 'edit_post' post.pk %}">Edit</a>
                     <!-- <button type="button" class="btn btn-danger btn-rounded btn-sm my-0" href="{% url 'delete_post' post.pk %}">Delete</button> -->
                     <a type="button" class="btn btn-danger btn-rounded btn-sm my-0" href="{% url 'delete_post' post.pk %}">Delete</a>
-                    <a  href="https://www.facebook.com/sharer/sharer.php?u={{ request.build_absolute_uri}}">
-                      Facebook
-                    </a>
-                    <a href="https://twitter.com/home?status=Check%20out%20my%20post%20on%20Collegemarket!%20{{ request.build_absolute_uri}}">
-                      Twitter
-                    </a>
-                    <a href="https://www.linkedin.com/shareArticle?mini=true&url={{ request.build_absolute_uri}}&title=Be%20first%20%7C%20Join%20Collegemarket&summary=Check%20out%20my%20post%20on%20Collegemarket!%20 &source={{ request.build_absolute_uri}}">
-                      Linkedin
-                    </a>
-                   
                   {% endif %}
+                  <button onclick="window.location.href='https://www.facebook.com/sharer/sharer.php?u={{ request.build_absolute_uri}}'">
+                    Facebook
+                  </button>
+                  <button onclick="window.location.href='https://twitter.com/home?status=Check%20out%20my%20post%20on%20Collegemarket!%20{{ request.build_absolute_uri}}'">
+                    Twitter
+                  </button>
+                  <button onclick="window.location.href='https://www.linkedin.com/shareArticle?mini=true&url={{ request.build_absolute_uri}}&title=Be%20first%20%7C%20Join%20Collegemarket&summary=Check%20out%20my%20post%20on%20Collegemarket!%20 &source={{ request.build_absolute_uri}}'">
+                    Linkedin
+                  </button>
               {% endfor %}
           </div>
         </div>
