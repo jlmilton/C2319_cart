@@ -26,6 +26,7 @@ urlpatterns = [
     path('post/', include('posts.urls')),
     path('register/' , v.register , name = 'register'),
     path('', include('django.contrib.auth.urls')),
+    url(r'^account/', include('register.urls')),
 ]
 if settings.DEBUG:
     urlpatterns += static(settings.MEDIA_URL,

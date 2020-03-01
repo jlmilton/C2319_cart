@@ -1,0 +1,32 @@
+{% extends 'base.html' %}
+{% block title %}Profile{% endblock %}
+{% block content %}
+<br><br><br><br>
+{% if user.is_authenticated %}
+<h3>You can find here all of your information: </h3><br>
+<div class="container">
+    <div class="row">
+      <div class="col-md-14 mt-3 left">
+        <div class="card mb-4">
+          <div class="card-body">
+            <pre class="tab">
+            <h4>Name: {{ user }}</h4>
+            <h4>First Name: {{ user.first_name }}</h4>
+            <h4>Last Name: {{ user.last_name }}</h4>
+            <h4>Email address: {{ user.email }}</h4>
+            <h4>Age: {{ user.userprofile.age }}</h4>
+            <h4>Location: {{ user.userprofile.location }}</h4>
+            <h4>Occupation: {{ user.userprofile.get_occupation_display }}</h4>
+            </pre>
+          </div>
+        </div>
+      </div>
+    </div>
+</div>
+
+{% else %}
+  <h3>You are not allowed to see this post</h3><br>
+  <h1>Redirect...</h1>
+  <meta http-equiv = "refresh" content = "3; url = {% url 'home' %}" />
+{% endif %}
+{% endblock %}
