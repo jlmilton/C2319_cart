@@ -57,3 +57,6 @@ def delete_post(request, pk=None):
     item.delete()
     return redirect('/post/')
     # return render (request, '../templates/post_list.html' , {'form' : form})
+
+
+    
