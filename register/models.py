@@ -15,6 +15,8 @@ class UserProfile(models.Model):
     location = models.CharField(max_length=30, default=0, blank=True, null=True)
     age = models.IntegerField(null=True, blank=True)
     occupation = models.IntegerField(choices=JOB , default = 4)
+    first_name = models.CharField(max_length=30, null=False, blank=False)
+    last_name = models.CharField(max_length=150, null=False, blank=False)
 
 
 
