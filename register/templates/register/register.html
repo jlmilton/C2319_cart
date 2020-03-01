@@ -6,8 +6,8 @@
 
   <form method="POST" class="form-group">
     {% csrf_token %}
-    {{ profile_form.as_p}}
     {{ form.as_p }}
+    {{ profile_form.as_p}}
     <button type="submit" class="btn btn-success"> register </button>
   </form>
 {% endblock %}
