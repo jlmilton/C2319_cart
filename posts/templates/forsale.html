@@ -2,7 +2,7 @@
 {% block content %}
 <br><br><br>
 {% if user.is_authenticated %}
-  <h1>My Items</h1>
+  <h1>Items for sale</h1>
   <br>
     {% for post in object_list %}
       {% if post.publish == 1 %}

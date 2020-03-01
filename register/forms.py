@@ -1,6 +1,6 @@
 from django import forms
 from django.contrib.auth import login, authenticate
-from django.contrib.auth.forms import UserCreationForm
+from django.contrib.auth.forms import UserCreationForm, UserChangeForm
 from django.contrib.auth.models import User
 from .models import UserProfile
 
@@ -38,3 +38,13 @@ class UserProfileForm(forms.ModelForm):
     #     user.age = self.cleaned_data['age']
     #     user.location = self.cleaned_data['location']
     #     user.occupation = self.cleaned_data['occupation']
+
+class EditProfileForm(UserChangeForm):
+    class Meta:
+        model = User
+        fields = ('first_name' , 'last_name' , 'email', 'password')
+
+class EditProfileFormCustme(UserChangeForm):
+    class Meta:
+        model = UserProfile
+        fields = ( 'age' , 'occupation' ,)
