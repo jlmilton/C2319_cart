@@ -13,14 +13,16 @@ CATEGORY = (
     (2,"Major Appliance"),
     (3,"Kitchen"),
     (4,"Books"),
-    (5,"Motors")
+    (5,"Motors"),
+    (6,"Music"),
+    (7,"Other")
 )
 CONDITION = {
     (0,"Brand New"),
     (1, "Used - Like New"),
     (2, "Used - Good"),
-    (3, "Used - working"),
-    (4, "Used - Not Working")
+    (3, "Used - Poor Condidtion"),
+    (4, "Used - Not Usable")
 }
 
 class Post(models.Model):
