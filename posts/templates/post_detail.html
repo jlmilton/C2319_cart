@@ -7,21 +7,21 @@
         <div class="col-md-14 mt-3 left">
           <div class="card mb-4">
             <div class="card-body">
-              <h2 class="pt-3-half" contenteditable="true" class="card-title">{{ object.title }}</h2>
+              <h2 class="pt-3-half" class="card-title">{{ object.title }}</h2>
               <br>
               <h4>Description:</h4>
-              <p class="pt-6-half" contenteditable="true" class="card-text text-muted h6">{{ object.body }}</p>
+              <p class="pt-6-half" class="card-text text-muted h6">{{ object.body }}</p>
               <p><h4>Price:</h4></p>
               {% if object.price == None %}
-              <span>&#36;</span><span class="pt-6-half" contenteditable="true" class="card-text text-muted h6">0</span>
+              <span>&#36;</span><span class="pt-6-half" class="card-text text-muted h6">0</span>
               {% else %}
-              <span>&#36;</span><span class="pt-6-half" contenteditable="true" class="card-text text-muted h6">{{ object.price }}</span>
+              <span>&#36;</span><span class="pt-6-half" class="card-text text-muted h6">{{ object.price }}</span>
               {% endif %}
               <br><br>
               <p><h4>Condition:<h4></p>
-              {% if object.get_condition_display == 'Used - Not Usable' %}
+              {% if object.get_condition_display == 'Used - Not Working' %}
               <p class="pt-6-half" class="card-text text-muted h6"><font color="red">{{ object.get_condition_display }}</font></p>
-              {% elif object.get_condition_display == 'Used - Poor Condidtion' %}
+              {% elif object.get_condition_display == 'Used - working' %}
               <p class="pt-6-half" class="card-text text-muted h6"><font color="#b38f00">{{ object.get_condition_display }}</font></p>
               {% elif object.get_condition_display == 'Brand New' %}
               <p class="pt-6-half" class="card-text text-muted h6"><font color="green">{{ object.get_condition_display }}</font></p>
@@ -47,16 +47,16 @@
                     <!-- <button type="button" class="btn btn-danger btn-rounded btn-sm my-0" href="{% url 'delete_post' post.pk %}">Delete</button> -->
                     <a type="button" class="btn btn-danger btn-rounded btn-sm my-0" href="{% url 'delete_post' post.pk %}">Delete</a>
                   {% endif %}
+                  <button onclick="window.location.href='https://www.facebook.com/sharer/sharer.php?u={{ request.build_absolute_uri}}'">
+                    Facebook
+                  </button>
+                  <button onclick="window.location.href='https://twitter.com/home?status=Check%20out%20my%20post%20on%20Collegemarket!%20{{ request.build_absolute_uri}}'">
+                    Twitter
+                  </button>
+                  <button onclick="window.location.href='https://www.linkedin.com/shareArticle?mini=true&url={{ request.build_absolute_uri}}&title=Be%20first%20%7C%20Join%20Collegemarket&summary=Check%20out%20my%20post%20on%20Collegemarket!%20 &source={{ request.build_absolute_uri}}'">
+                    Linkedin
+                  </button>
               {% endfor %}
-              <button onclick="window.location.href='https://www.facebook.com/sharer/sharer.php?u={{ request.build_absolute_uri}}'">
-                Facebook
-              </button>
-              <button onclick="window.location.href='https://twitter.com/home?status=Check%20out%20my%20post%20on%20Collegemarket!%20{{ request.build_absolute_uri}}'">
-                Twitter
-              </button>
-              <button onclick="window.location.href='https://www.linkedin.com/shareArticle?mini=true&url={{ request.build_absolute_uri}}&title=Be%20first%20%7C%20Join%20Collegemarket&summary=Check%20out%20my%20post%20on%20Collegemarket!%20 &source={{ request.build_absolute_uri}}'">
-                Linkedin
-              </button>
           </div>
         </div>
       </div>
