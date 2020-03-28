@@ -1,7 +1,7 @@
 {% extends 'base.html' %}
 {% block content %}
 <br><br><br>
-{% if user.is_authenticated %}
+{% if user.is_authenticated and user == post.user or post.publish == 1 %}
   <div class="container">
       <div class="row">
         <div class="col-md-14 mt-3 left">
@@ -19,7 +19,7 @@
               {% endif %}
               <br><br>
               <p><h4>Condition:<h4></p>
-              {% if object.get_condition_display == 'Used - Not Working' %}
+              {% if object.get_condition_display == 'Used - Not Usable' %}
               <p class="pt-6-half" class="card-text text-muted h6"><font color="red">{{ object.get_condition_display }}</font></p>
               {% elif object.get_condition_display == 'Used - working' %}
               <p class="pt-6-half" class="card-text text-muted h6"><font color="#b38f00">{{ object.get_condition_display }}</font></p>
@@ -32,8 +32,10 @@
               {% endif %}
               <h3>Category:</h3>
               <p class="pt-6-half" class="card-text text-muted h6">{{ object.get_category_display }}</p>
-              <h3>Publish:</h3>
-              <p class="pt-6-half" class="card-text text-muted h6">{{ object.get_publish_display }}</p>
+                  {% if user == post.user %}
+                      <h3>Publish:</h3>
+                      <p class="pt-6-half" class="card-text text-muted h6">{{ object.get_publish_display }}</p>
+                  {% endif %}
               <h3>Images:</h3>
               {% if object.cover %}
               <img src="{{ object.cover.url}}" alt="{{ object.title }}" style="float:center;width:50%;height:100%;object-fit:cover;">
@@ -41,7 +43,6 @@
               <img src="/media/images/no-image-available-icon-6.jpg"/>
               {% endif %}
               <br><br>
-              {% for post in user.post.all %}
                   {% if post.pk == object.pk %}
                     <a type="button" class="btn btn-success btn-rounded btn-sm my-0" href="{% url 'edit_post' post.pk %}">Edit</a>
                     <!-- <button type="button" class="btn btn-danger btn-rounded btn-sm my-0" href="{% url 'delete_post' post.pk %}">Delete</button> -->
@@ -56,16 +57,15 @@
                   <button onclick="window.location.href='https://www.linkedin.com/shareArticle?mini=true&url={{ request.build_absolute_uri}}&title=Be%20first%20%7C%20Join%20Collegemarket&summary=Check%20out%20my%20post%20on%20Collegemarket!%20 &source={{ request.build_absolute_uri}}'">
                     Linkedin
                   </button>
-              {% endfor %}
           </div>
         </div>
       </div>
     </div>
   </div>
+    {% else %}
+      <h3>You are not allowed to see this post</h3><br>
+      <h1>Redirect...</h1>
+      <meta http-equiv = "refresh" content = "2; url = {% url 'home' %}" />
+    {% endif %}
 
-{% else %}
-  <h3>You are not allowed to see this post</h3><br>
-  <h1>Redirect...</h1>
-  <meta http-equiv = "refresh" content = "3; url = {% url 'home' %}" />
-{% endif %}
 {% endblock %}
