@@ -3,5 +3,20 @@
 	<br><br><br>
 	<p><h2>Home Page</h2></p>
 
+	{% if user.is_authenticated %}
+    <div class="col-xs-12">
+                <div class="" role="alert">
+                    <h6>Welcome back <h3>{{ user.first_name }}</h3></h6>
+                    <br>
+                </div>
+    </div>
+
+     {% else %}
+     <div class="col-xs-12">
+        <p>please log in or signup to the website in order to buy and sell items</p>
+        <a href="/login" class="btn btn-outline-primary" role="button" aria-pressed="true">Login</a>
+        <a href="/register" class="btn btn-outline-info" role="button" aria-pressed="true">Register</a>
+     </div>
+     {% endif %}
 
 {% endblock content %}

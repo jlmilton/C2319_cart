@@ -1,7 +1,7 @@
 {% extends 'base.html' %}
 {% block content %}
 <br><br><br>
-{% if user.is_authenticated and user == post.user or post.publish == 1 %}
+{% if user.is_authenticated and post.publish == 1 or user == post.user%}
   <div class="container">
       <div class="row">
         <div class="col-md-14 mt-3 left">
@@ -43,7 +43,8 @@
               <img src="/media/images/no-image-available-icon-6.jpg"/>
               {% endif %}
               <br><br>
-                  {% if post.pk == object.pk %}
+
+                  {% if user == post.user %}
                     <a type="button" class="btn btn-success btn-rounded btn-sm my-0" href="{% url 'edit_post' post.pk %}">Edit</a>
                     <!-- <button type="button" class="btn btn-danger btn-rounded btn-sm my-0" href="{% url 'delete_post' post.pk %}">Delete</button> -->
                     <a type="button" class="btn btn-danger btn-rounded btn-sm my-0" href="{% url 'delete_post' post.pk %}">Delete</a>

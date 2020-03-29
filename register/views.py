@@ -6,9 +6,12 @@ from .forms import(
     EditProfileFormCustme,
 )
 from django.contrib.auth.forms import PasswordChangeForm
-from django.contrib.auth import update_session_auth_hash , get_user_model
+from django.contrib.auth import update_session_auth_hash , get_user_model , login
 from .models import UserProfile
 from django.contrib.auth.models import User
+from django.core.mail import send_mail
+from django.conf import settings
+from django.contrib import messages
 
 
 
@@ -23,7 +26,16 @@ def register(response):
             profile = profile_form.save(commit=False)
             profile.user = user
             profile.save()
+            login(response , user)
+
+            subject = "Welcome to C-2319 (College Market)"
+            email_from = settings.EMAIL_HOST_USER
+            recipient_list = ['c2319collegemarket@gmail.com']
+            message = """Welcome to College Market, the best way to buy and sell stuff online to other students, staff and faclty members."""
+            send_mail(subject , message , email_from , recipient_list)
+
             return redirect('/')
+            #messages.success(response , 'Your profile has been created.')
     else:
         form = RegisterForm()
         profile_form = UserProfileForm()
@@ -42,6 +54,9 @@ def edit_profile(response , pk=None):
             profile = profile_form_e.save(commit=False)
             profile.user = user
             profile.save()
+
+            messages.success(response , 'Your new profile has been saved.')
+
             return redirect('/account/profile')
     else:
         form_e = EditProfileForm(instance=response.user)
@@ -67,5 +82,6 @@ def change_password(response):
 
 
 def view_profile(response):
-    args = {'user' : response.user}
+    storage = messages.get_messages(response)
+    args = {'user' : response.user , 'message' : storage}
     return render (response, 'registration/profile.html' , args)

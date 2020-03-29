@@ -4,8 +4,6 @@
 {% block content %}
 <br><br><br><br><br>
 {% if user.is_authenticated %}
-        <p> {{ user.userprofile.pk }}</p>
-
     <div class="container">
       <form method="POST">
         {% csrf_token %}
