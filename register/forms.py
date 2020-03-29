@@ -30,7 +30,17 @@ class UserProfileForm(forms.ModelForm):
 
     class Meta:
         model = UserProfile
-        fields = ( 'age' , 'occupation' ,)
+        fields = [ 'age' , 'occupation' , 'location']
+
+    def save(self, commit=True):
+        # user = super(RegisterForm, self).save(commit=False)
+        userprofile = super().save(commit=False)
+        userprofile.age = self.cleaned_data['age']
+        userprofile.occupation = self.cleaned_data['occupation']
+        userprofile.location = self.cleaned_data['location']
+        if commit:
+            userprofile.save()
+        return userprofile
 
     # def save(self, commit=True):
     #     user = super().save(commit=False)
@@ -42,9 +52,20 @@ class UserProfileForm(forms.ModelForm):
 class EditProfileForm(UserChangeForm):
     class Meta:
         model = User
-        fields = ('first_name' , 'last_name' , 'email', 'password')
+        fields = ['first_name' , 'last_name' , 'password']
 
-class EditProfileFormCustme(UserChangeForm):
+class EditProfileFormCustme(forms.ModelForm):
     class Meta:
         model = UserProfile
-        fields = ( 'age' , 'occupation' ,)
+        fields = [ 'age' , 'occupation' , 'location']
+
+    def save(self, commit=True):
+        # user = super(RegisterForm, self).save(commit=False)
+        userprofile = super().save(commit=False)
+        userprofile.age = self.cleaned_data['age']
+        userprofile.occupation = self.cleaned_data['occupation']
+        userprofile.location = self.cleaned_data['location']
+        if commit:
+            userprofile.save()
+        return userprofile
+
