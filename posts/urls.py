@@ -11,5 +11,5 @@ urlpatterns = [
     url(r'^edit/(?P<pk>\d+)/$' , views.edit_post, name = 'edit_post'),
     path('forsale' , ForSaleListView.as_view(), name='for_sale'),
     url(r'^delete/(?P<pk>\d+)/$' , views.delete_post, name = 'delete_post'),
-    url(r'^contact_p/$', views.contact_p, name="contact_p"),
+    #re_path(r'^(?P<pk>\d+)/$', views.contact_p, name="contact_p"),
     ]

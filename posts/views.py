@@ -61,16 +61,17 @@ def delete_post(request, pk=None):
     # return render (request, '../templates/post_list.html' , {'form' : form})
 
 
-    
-def contact_p(request):
-
+#**    
+def contact_p(request, pk=None):
+    item = get_object_or_404(Post , pk=pk)
+    post_e = post.pk
     if request.method == "POST":
         message_e = request.POST['message']
-        message = request.POST
+        message = 'h'
         send_mail(
           'A new message from a futre buyer',
           message,
           settings.EMAIL_HOST_USER, 
           [request.user.email],
           fail_silently = False)
-    return render (request , 'contact_p.html')
+    return redirect('/post/')
