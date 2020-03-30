@@ -3,13 +3,20 @@
 {% block title %}Edit Account {% endblock %}
 {% block content %}
 <br><br><br><br><br>
-<div class="container">
-  <form method="POST">
-    {% csrf_token %}
-    {{ profile_form.as_p}}
-    {{ form.as_p }}
-    <button class="btn btn-success" type="submit">Save</button>
-  </form>
-  <br>
-</div>
+{% if user.is_authenticated %}
+    <div class="container">
+      <form method="POST">
+        {% csrf_token %}
+        {{ profile_form_e.as_p}}
+        {{ form_e.as_p }}
+        <button class="btn btn-success" type="submit" value="save">Save</button>
+      </form>
+      <br>
+    </div>
+
+{% else %}
+  <h3>You are not allowed to see this post</h3><br>
+  <h1>Redirect...</h1>
+  <meta http-equiv = "refresh" content = "3; url = {% url 'home' %}" />
+{% endif %}
 {% endblock %}

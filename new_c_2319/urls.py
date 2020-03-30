@@ -27,6 +27,8 @@ urlpatterns = [
     path('register/' , v.register , name = 'register'),
     path('', include('django.contrib.auth.urls')),
     url(r'^account/', include('register.urls')),
+    path('', include('sendemail.urls')), # new
+
 ]
 if settings.DEBUG:
     urlpatterns += static(settings.MEDIA_URL,

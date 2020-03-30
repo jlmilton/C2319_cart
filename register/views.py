@@ -1,15 +1,19 @@
-from django.shortcuts import render, redirect
+from django.shortcuts import render, redirect, get_object_or_404
 from .forms import(
     RegisterForm,
     UserProfileForm,
     EditProfileForm,
     EditProfileFormCustme,
 )
-from django.views.generic import DetailView
+from django.contrib.auth.forms import PasswordChangeForm
+from django.contrib.auth import update_session_auth_hash , get_user_model , login
 from .models import UserProfile
 from django.contrib.auth.models import User
-from django.contrib.auth.forms import UserChangeForm, PasswordChangeForm
-from django.contrib.auth import update_session_auth_hash
+from django.core.mail import send_mail
+from django.conf import settings
+from django.contrib import messages
+
+
 
 
 def register(response):
@@ -22,34 +26,41 @@ def register(response):
             profile = profile_form.save(commit=False)
             profile.user = user
             profile.save()
-            #
-            # username = form.cleaned_data.get('username')
-            # password = form.cleaned_data.get('password1')
-            # user = authenticate(username=username , password=password)
-            # login(response, user)
+            login(response , user)
+
+            subject = "Welcome to C-2319 (College Market)"
+            email_from = settings.EMAIL_HOST_USER
+            recipient_list = [user.email]
+            message = """Welcome to College Market, the best way to buy and sell stuff online to other students, staff and faclty members."""
+            send_mail(subject , message , email_from , recipient_list)
+
             return redirect('/')
+            #messages.success(response , 'Your profile has been created.')
     else:
         form = RegisterForm()
         profile_form = UserProfileForm()
     context = {'form' : form, 'profile_form' : profile_form}
     return render(response, 'register/register.html' , context)
 
+def edit_profile(response , pk=None):
+    current_user = response.user.userprofile.pk
+    user_edit = get_object_or_404(UserProfile, pk=current_user)
 
-def edit_profile(response):
     if response.method == 'POST':
-        form = EditProfileForm(response.POST , instance=response.user)
-        profile_form = EditProfileFormCustme(response.POST , instance=response.user)
-        if form.is_valid() and profile_form.is_valid():
-            user = form.save()
-            profile = profile_form.save(commit=False)
+        form_e = EditProfileForm(response.POST , instance=response.user)
+        profile_form_e = UserProfileForm(response.POST , instance=user_edit)
+        if form_e.is_valid() and profile_form_e.is_valid():
+            user = form_e.save()
+            profile = profile_form_e.save(commit=False)
             profile.user = user
             profile.save()
+
             return redirect('/account/profile')
     else:
-        form = EditProfileForm(instance=response.user)
-        profile_form = EditProfileFormCustme(instance=response.user)
-        context = {'form' : form , 'profile_form' : profile_form}
-        return render(response, 'registration/edit_profile.html' , context)
+        form_e = EditProfileForm(instance=response.user)
+        profile_form_e = UserProfileForm(instance=user_edit)
+    context = {'form_e' : form_e , 'profile_form_e' : profile_form_e , 'user_edit' : user_edit}
+    return render(response, 'registration/edit_profile.html' , context)
 
 def change_password(response):
     if response.method == 'POST':
@@ -69,5 +80,6 @@ def change_password(response):
 
 
 def view_profile(response):
-    args = {'user' : response.user}
+    storage = messages.get_messages(response)
+    args = {'user' : response.user , 'message' : storage}
     return render (response, 'registration/profile.html' , args)

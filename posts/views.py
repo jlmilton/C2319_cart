@@ -3,6 +3,8 @@ from .forms import PostForm
 from django.shortcuts import render , get_object_or_404 , redirect
 from django.views.generic import ListView, DetailView
 from .models import Post
+from django.core.mail import send_mail
+from django.conf import settings
 
 # Create your views here.
 def add_post(request):
@@ -59,4 +61,17 @@ def delete_post(request, pk=None):
     # return render (request, '../templates/post_list.html' , {'form' : form})
 
 
-    
+#**    
+def contact_p(request, pk=None):
+    item = get_object_or_404(Post , pk=pk)
+    post_e = post.pk
+    if request.method == "POST":
+        message_e = request.POST['message']
+        message = 'h'
+        send_mail(
+          'A new message from a futre buyer',
+          message,
+          settings.EMAIL_HOST_USER, 
+          [request.user.email],
+          fail_silently = False)
+    return redirect('/post/')

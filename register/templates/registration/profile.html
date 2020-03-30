@@ -1,4 +1,4 @@
-{% extends 'base.html' %}
+ {% extends 'base.html' %}
 {% block title %}Profile{% endblock %}
 {% block content %}
 <br><br><br><br>
@@ -11,9 +11,9 @@
           <div class="card-body">
             <pre class="tab">
             <h4>Name: {{ user }}</h4>
+            <h4>Email: {{ user.email }}</h4>
             <h4>First Name: {{ user.first_name }}</h4>
             <h4>Last Name: {{ user.last_name }}</h4>
-            <h4>Email address: {{ user.email }}</h4>
             <h4>Age: {{ user.userprofile.age }}</h4>
             <h4>Location: {{ user.userprofile.location }}</h4>
             <h4>Occupation: {{ user.userprofile.get_occupation_display }}</h4>
