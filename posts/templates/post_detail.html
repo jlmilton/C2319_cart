@@ -48,6 +48,12 @@
                     <a type="button" class="btn btn-success btn-rounded btn-sm my-0" href="{% url 'edit_post' post.pk %}">Edit</a>
                     <!-- <button type="button" class="btn btn-danger btn-rounded btn-sm my-0" href="{% url 'delete_post' post.pk %}">Delete</button> -->
                     <a type="button" class="btn btn-danger btn-rounded btn-sm my-0" href="{% url 'delete_post' post.pk %}">Delete</a>
+                  {% else %}
+                      <form method="post" , action={% url 'contact_p' %}>
+	                    {% csrf_token %}
+	                    <textarea name="message" placeholder="Message..."></textarea>
+	                    <button class="btn btn-success" type="submit">Save</button>
+                      </form>
                   {% endif %}
                   <button onclick="window.location.href='https://www.facebook.com/sharer/sharer.php?u={{ request.build_absolute_uri}}'">
                     Facebook
