@@ -1,11 +1,31 @@
 {% load static %}
 <!DOCTYPE html>
 <html>
+<title>c-2319</title>
 <head>
   <style type="text/css">
-  #element1 {float:left; color:green;}
-  #element2 {float:left; color:SlateBlue;}
-  #element3 {float:left; color:Tomato;}
+      #element1 {float:left; color:green;}
+      #element2 {float:left; color:SlateBlue;}
+      #element3 {float:left; color:Tomato;}
+
+      body,h1,h2,h3,h4,h5,h6 {font-family: "Raleway", sans-serif}
+
+      body, html {
+        height: 100%;
+        line-height: 1.8;
+        }
+
+    /* Full height image header */
+      .bgimg-1 {
+        background-position: center;
+        background-size: 100%;
+        background-image: url("media/two-brown-and-red-gift-boxes-on-red-surface-1666070.jpg");
+        min-height: 80%;
+        }
+
+      .w3-bar .w3-button {
+        padding: 16px;
+        }
   </style>
 
 	<!-- Required meta tags -->
@@ -14,16 +34,52 @@
 
     <!-- Bootstrap CSS -->
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Raleway">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+
 </head>
 <body>
-	<header class="site-header">
+<header class="site-header">
+
+<!-- Navbar (sit on top) -->
+<div class="w3-top">
+  <div class="w3-bar w3-white w3-card" id="myNavbar">
+    <a href="{% url 'home' %}" class="w3-bar-item w3-button w3-wide">COLLEGE MARKETS</a>
+      <a href="{% url 'home' %}" class="w3-bar-item w3-button"><i class="fa fa-home"></i> Home</a>
+      <a href="{% url 'about' %}" class="w3-bar-item w3-button"><i class="fa fa-info"></i> About</a>
+      {% if user.is_authenticated %}
+      <a href="{% url 'for_sale' %}" class="w3-bar-item w3-button"><i class="fa fa-usd"></i> Items for sale</a>
+      <!--<a href="#contact" class="w3-bar-item w3-button"><i class="fa fa-envelope"></i> CONTACT</a>-->
+      <!-- RIGHT SIDE -->
+      <div class="w3-right w3-hide-small">
+   
+              <a href="{% url 'add_post' %}" class="w3-bar-item w3-button"><i class="fa fa-plus"></i> New Posts</a>
+              <a href="{% url 'post_list' %}" class="w3-bar-item w3-button"><i class="fa fa-list"></i> My Posts</a>
+              <a href="{% url 'view_profile' %}" class="w3-bar-item w3-button"><i class="fa fa-user"></i> My Profile</a>
+              <a href="/logout" class="w3-bar-item w3-button"><i class="fa fa-sign-out"></i> Logout</a>
+      {% else %}
+              <div class="w3-right w3-hide-small">
+              <a href="/login" class="w3-bar-item w3-button"><i class="fa fa-sign-in"></i> Login</a>
+              <a href="/register" class="w3-bar-item w3-button"><i class="fa fa-user-plus"></i> Register</a>
+      {% endif %}
+    <!-- Hide right-floated links on small screens and replace them with a menu icon -->
+
+    <a href="javascript:void(0)" class="w3-bar-item w3-button w3-right w3-hide-large w3-hide-medium" onclick="w3_open()">
+      <i class="fa fa-bars"></i>
+    </a>
+  </div>
+</div>
+
+
+    <!--
 	  <nav class="navbar navbar-expand-md navbar-dark bg-primary fixed-top">
 		<div class="container">
 		  <a class="navbar-brand mr-4" href="{% url 'home' %}">College Market</a>
 		  <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarToggle" aria-controls="navbarToggle" aria-expanded="false" aria-label="Toggle navigation">
 		  <span class="navbar-toggler-icon"></span>
 		  </button>
-
+          
 		  <div class="collapse navbar-collapse" id="navbarToggle">
 			<div class="navbar-nav mr-auto">
 			  <a class="nav-item nav-link" href="{% url 'home' %}">Home</a>
@@ -32,6 +88,7 @@
         <a class="nav-item nav-link" href="{% url 'for_sale' %}">Items for sale</a>
         {% endif %}
 			</div>
+            
       {% if user.is_authenticated %}
       <div class="navbar-nav">
         <a class="nav-item nav-link" href="{% url 'add_post' %}">New Posts</a>
@@ -48,12 +105,15 @@
 		  </div>
 		</div>
 	  </nav>
+          -->
+
 	</header>
 	<main role="main" class="container">
     <div>
     </div>
+
 	  <div class="row">
-		<div class="col-md-8">
+		<div class="col-md-12">
       {% block content %}{% endblock %}
 		</div>
 	  </div>
