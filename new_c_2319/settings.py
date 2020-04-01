@@ -43,6 +43,8 @@ INSTALLED_APPS = [
     'register.apps.RegisterConfig',
     'sendemail.apps.SendemailConfig',
     'crispy_forms',
+    'django_filters',
+    'bootstrapform'
 ]
 
 MIDDLEWARE = [
