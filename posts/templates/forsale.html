@@ -1,5 +1,4 @@
 {% extends 'base.html' %}
-{% load bootstrap %}
 {% block content %}
 <br><br><br>
 {% if user.is_authenticated %}
@@ -8,7 +7,7 @@
      <form method="GET">
       <div class="form-row align-items-center">
         <div class="col-auto">
-            {{ filter.form | bootstrap }}
+            {{ filter.form }}
             <button type="submit" class=="btn btn-primary">Search</button>
         </div>
        </div>
