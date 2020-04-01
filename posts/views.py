@@ -5,6 +5,7 @@ from django.views.generic import ListView, DetailView
 from .models import Post
 from django.core.mail import send_mail
 from django.conf import settings
+from .filters import PostFilter
 
 # Create your views here.
 def add_post(request):
@@ -39,9 +40,14 @@ class PostListView(ListView):
     model = Post
     template_name = '../templates/post_list.html'
 
+
 class ForSaleListView(ListView):
     model = Post
     template_name = '../templates/forsale.html'
+    def get_context_data(self, **kwargs):
+        context = super().get_context_data(**kwargs)
+        context['filter'] = PostFilter(self.request.GET , queryset = self.get_queryset())
+        return context
 
 
 def edit_post(request , pk=None):
