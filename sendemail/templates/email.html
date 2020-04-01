@@ -1,22 +1,29 @@
 <!-- templates/email.html -->
 {% extends 'base.html' %}
+{% load crispy_forms_tags %}
+
 {% block content %}
 <br><br><br>
 <h1>Contact The Seller</h1>
+<h5>Send a message to the seller to get more information.<br> The seller will get an email with your messgae, your email address and the name of the product</h5>
 {% if user.is_authenticated %}
   <div class="container">
-        <div class="col-md-14 mt-3 left">
+      <div class="row">
+        <div class="col-md-10 mt-0">
             <div class="card-body">
-              <h2 class="pt-3-half" class="card-title">{{ object.title }}</h2>
-                <form method="post">
+              <h2 class="pt-3-half" class="card-title" id="same-line-1" >{{ object.title }}</h2>
+                <form method="post" novalidate>
                     {% csrf_token %}
-                    {{ form.as_p }}
+                    <div id="same-line-4">
+                        {{ form|crispy }}
+                    </div>
                     <div class="form-actions">
                       <button type="submit">Send</button>
                     </div>
                 </form>
              </div>
-        </div>
+         </div>
+       </div>
   </div>
 
 

@@ -42,6 +42,7 @@ INSTALLED_APPS = [
     'posts.apps.PostsConfig',
     'register.apps.RegisterConfig',
     'sendemail.apps.SendemailConfig',
+    'crispy_forms',
 ]
 
 MIDDLEWARE = [

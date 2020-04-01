@@ -6,22 +6,57 @@
 <h3>You can find here all of your information: </h3><br>
 <div class="container">
     <div class="row">
-      <div class="col-md-14 mt-3 left">
+      <div class="col-md-10 mt-3 left">
         <div class="card mb-4">
           <div class="card-body">
-            <pre class="tab">
-            <h4>Name: {{ user }}</h4>
-            <h4>Email: {{ user.email }}</h4>
-            <h4>First Name: {{ user.first_name }}</h4>
-            <h4>Last Name: {{ user.last_name }}</h4>
-            <h4>Age: {{ user.userprofile.age }}</h4>
-            <h4>Location: {{ user.userprofile.location }}</h4>
-            <h4>Occupation: {{ user.userprofile.get_occupation_display }}</h4>
-            <div>
-              <a type="button" class="btn btn-success btn-rounded btn-sm my-0" href="{% url 'edit_profile' %}">Edit</a><br>
-              <a type="button" class="btn btn-warning btn-rounded btn-sm my-0" href="{% url 'change_password' %}">Change Password</a>
+            <div id="same-line-1">
+                <h4>Name: <h4>
             </div>
-            </pre>
+            <div id="same-line-2">
+                <h4>{{ user }}</h4>
+            </div><br>
+            <div id="same-line-1">
+                <h4>Email: </h4>
+            </div>
+            <div id="same-line-2">
+                <h4>{{ user.email }}</h4>
+            </div><br>
+            <div id="same-line-1">
+                <h4>First Name: </h4>
+            </div>
+            <div id="same-line-2">
+                <h4>{{ user.first_name }}</h4>
+            </div><br>
+            <div id="same-line-1">
+                <h4>Last Name: </h4>
+            </div>
+            <div id="same-line-2">
+                <h4>{{ user.last_name }}</h4>
+            </div><br>
+            <div id="same-line-1">
+                <h4>Age: </h4> 
+            </div>
+            <div id="same-line-2">
+                <h4>{{ user.userprofile.age }}</h4>
+            </div><br>
+            <div id="same-line-1">
+                <h4>Location: </h4>
+            </div>
+            <div id="same-line-2">
+                <h4>{{ user.userprofile.location }}</h4>
+            </div><br>
+            <div id="same-line-1">
+                <h4>Occupation: </h4>
+            </div>
+            <div id="same-line-2">
+                <h4>{{ user.userprofile.get_occupation_display }}</h4>
+            </div><br><br>
+            <div id="same-line-1">
+              <a type="button" class="btn btn-outline-success" href="{% url 'edit_profile' %}">Edit Profile</a>
+            </div>
+            <div id="same-line-2">
+              <a type="button" class="btn btn-outline-danger" href="{% url 'change_password' %}">Change Password</a>
+            </div>
           </div>
         </div>
       </div>

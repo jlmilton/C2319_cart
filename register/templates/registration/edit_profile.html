@@ -1,4 +1,5 @@
 {% extends 'base.html' %}
+{% load crispy_forms_tags %}
 
 {% block title %}Edit Account {% endblock %}
 {% block content %}
@@ -7,8 +8,8 @@
     <div class="container">
       <form method="POST">
         {% csrf_token %}
-        {{ profile_form_e.as_p}}
-        {{ form_e.as_p }}
+        {{ profile_form_e | crispy}}
+        {{ form_e | crispy }}
         <button class="btn btn-success" type="submit" value="save">Save</button>
       </form>
       <br>
