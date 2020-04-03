@@ -1,5 +1,6 @@
 <!-- templates/email.html -->
 {% extends 'base.html' %}
+{% load crispy_forms_tags %}
 
 {% block content %}
 <br><br><br>
@@ -14,7 +15,7 @@
                 <form method="post" novalidate>
                     {% csrf_token %}
                     <div id="same-line-4">
-                        {{ form }}
+                        {{ form | crispy}}
                     </div>
                     <div class="form-actions">
                       <button type="submit">Send</button>
