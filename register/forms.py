@@ -69,3 +69,5 @@ class EditProfileFormCustme(forms.ModelForm):
             userprofile.save()
         return userprofile
 
+class RemoveUser(forms.Form):
+    username = forms.CharField()

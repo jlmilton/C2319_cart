@@ -4,6 +4,7 @@ from .forms import(
     UserProfileForm,
     EditProfileForm,
     EditProfileFormCustme,
+    RemoveUser,
 )
 from django.contrib.auth.forms import PasswordChangeForm
 from django.contrib.auth import update_session_auth_hash , get_user_model , login
@@ -61,6 +62,20 @@ def edit_profile(response , pk=None):
         profile_form_e = UserProfileForm(instance=user_edit)
     context = {'form_e' : form_e , 'profile_form_e' : profile_form_e , 'user_edit' : user_edit}
     return render(response, 'registration/edit_profile.html' , context)
+
+def remove_user(response , pk=None):
+    if response.method == 'POST':
+        item = get_object_or_404(User , pk=pk)
+        rem = User.objects.get(username=form.cleaned_data['username'])
+        User.delete()
+        return redirect('/post/')
+
+    else:
+        form = RemoveUser()
+    context = {'form': form}
+    return render(response, 'registration/remove_user.html', context)
+
+
 
 def change_password(response):
     if response.method == 'POST':

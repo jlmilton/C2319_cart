@@ -67,6 +67,15 @@ def delete_post(request, pk=None):
     # return render (request, '../templates/post_list.html' , {'form' : form})
 
 
+#def delete_post(request, pk=None):
+#    item = get_object_or_404(Post , pk=pk)
+#    form = PostForm(request.POST or None , instance=item)
+#    if request.method == "POST":
+#        item.delete()
+#        return redirect('/post/')
+#    context = { 'item' : item}
+#    return render (request, '../templates/post_list.html' , context)
+
 #**    
 def contact_p(request, pk=None):
     item = get_object_or_404(Post , pk=pk)
