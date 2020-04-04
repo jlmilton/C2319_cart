@@ -44,7 +44,7 @@ def register(response):
     return render(response, 'register/register.html' , context)
 
 def edit_profile(response , pk=None):
-    current_user = response.user.userprofile.pk
+    current_user = response.user.pk
     user_edit = get_object_or_404(UserProfile, pk=current_user)
 
     if response.method == 'POST':

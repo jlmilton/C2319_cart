@@ -89,16 +89,26 @@ WSGI_APPLICATION = 'new_c_2319.wsgi.application'
 #        'NAME': os.path.join(BASE_DIR, 'db.sqlite3'),
 #    }
 #}
-
+####pythonanywhere####
+# DATABASES = {
+#     'default': {
+#     'ENGINE': 'django.db.backends.sqlite3',
+#     'NAME': '/home/c2319/C-2319/c_2319_db',
+# 	'USER' : 'Admin_db',
+# 	'PASSWORD' : 'C-2319_admin',
+# 	'HOST' : '127.0.0.1',
+# 	'PORT' : '3306',
+#     }
+# }
 DATABASES = {
-    'default': {
-        'ENGINE': 'django.db.backends.sqlite3',
-        'NAME': 'c_2319_db',
-	'USER' : 'Admin_db',
-	'PASSWORD' : 'C-2319_admin',
-	'HOST' : 'localhost',
-	'PORT' : '3306',
-    }
+     'default': {
+     'ENGINE': 'django.db.backends.sqlite3',
+     'NAME': 'c_2319_db',
+ 	'USER' : 'Admin_db',
+ 	'PASSWORD' : 'C-2319_admin',
+ 	'HOST' : '127.0.0.1',
+ 	'PORT' : '3306',
+     }
 }
 
 
