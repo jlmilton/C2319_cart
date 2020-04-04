@@ -25,7 +25,7 @@ SECRET_KEY = '**!x5u+)uoqdw-^-n2qxe&xk$f7z@1!a*7#sau2&aj*4nu##vt'
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = ['2319.pythonanywhere.com', '*']
+ALLOWED_HOSTS = ['c2319.pythonanywhere.com/', '*']
 
 
 # Application definition
@@ -82,10 +82,22 @@ WSGI_APPLICATION = 'new_c_2319.wsgi.application'
 # Database
 # https://docs.djangoproject.com/en/1.11/ref/settings/#databases
 
+####original####
+#DATABASES = {
+#    'default': {
+#        'ENGINE': 'django.db.backends.sqlite3',
+#        'NAME': os.path.join(BASE_DIR, 'db.sqlite3'),
+#    }
+#}
+
 DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.sqlite3',
-        'NAME': os.path.join(BASE_DIR, 'db.sqlite3'),
+        'NAME': 'c_2319_db',
+	'USER' : 'Admin_db',
+	'PASSWORD' : 'C-2319_admin',
+	'HOST' : 'localhost',
+	'PORT' : '3306',
     }
 }
 
