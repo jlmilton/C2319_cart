@@ -91,15 +91,17 @@ WSGI_APPLICATION = 'new_c_2319.wsgi.application'
 #}
 ####pythonanywhere####
 # DATABASES = {
+#DATABASES = {
 #     'default': {
 #     'ENGINE': 'django.db.backends.sqlite3',
-#     'NAME': '/home/c2319/C-2319/c_2319_db',
+#     'NAME': 'home/c2319/C-2319/c_2319_db',
 # 	'USER' : 'Admin_db',
 # 	'PASSWORD' : 'C-2319_admin',
-# 	'HOST' : '127.0.0.1',
-# 	'PORT' : '3306',
+# 	'HOST' : 'http://c2319.pythonanywhere.com/',
 #     }
-# }
+#}
+
+####local####
 DATABASES = {
      'default': {
      'ENGINE': 'django.db.backends.sqlite3',
@@ -107,7 +109,6 @@ DATABASES = {
  	'USER' : 'Admin_db',
  	'PASSWORD' : 'C-2319_admin',
  	'HOST' : '127.0.0.1',
- 	'PORT' : '3306',
      }
 }
 
