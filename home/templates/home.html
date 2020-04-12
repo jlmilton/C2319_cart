@@ -8,11 +8,11 @@
         {% if user.is_authenticated %}
         <header class="bgimg-2 w3-display-container w3-grayscale-min" id="home">
         {% else %}
-        <header class="bgimg-1 w3-display-container w3-grayscale-min" id="home">
+        <header class="bgimg-1 w3-display-container w3-grayscale-min" id="home" >
         {% endif %}
 
           <div class="w3-display-left w3-text-white" style="padding:48px">
-            <span class="w3-jumbo w3-hide-small">Start selling and buying today</span><br>
+            <h3 id="jumbo">Start selling and buying today</h3><br>
             <br><br>
             <span class="w3-large">Hey you! There is a new and a better way to buy and sell used and new items</span>
             {% if user.is_authenticated %}
