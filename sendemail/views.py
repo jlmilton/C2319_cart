@@ -31,7 +31,18 @@ def emailView(request , pk=None):
                 send_mail(subject, message, from_email, [post.user.email])
             except BadHeaderError:
                 return HttpResponse('Invalid header found.')
+
+            message_plus_cc = 'Hi, you have sent a message about ' + str(current_item) + '.'
+            message_final_cc = message_plus_cc + '\n\n\nHere is a copy of your message:\n\n' + form.cleaned_data['message']
+            subject_cc = 'You have sent a meesgae about an Item - C-2319'
+            message_cc = message_final_cc
+            try:
+                send_mail(subject_cc, message_cc, from_email, [current_user_email])
+            except BadHeaderError:
+                return HttpResponse('Invalid header found.')
+
             return redirect('/post/' + str(pk))
+
     return render(request, "email.html", {'form': form})
 
 #def successView(request):
