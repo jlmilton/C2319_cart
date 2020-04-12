@@ -75,7 +75,7 @@
                             <!-- <button type="button" class="btn btn-danger btn-rounded btn-sm my-0" href="{% url 'delete_post' post.pk %}">Delete</button> -->
                                 <a type="button" class="btn btn-outline-danger" href="{% url 'delete_post' post.pk %}">Delete</a>
                             {% else %}
-                                <a type="button" class="btn btn-outline-success" href="{% url 'email' post.pk %}">Send a message to the seller</a>
+                                <a type="button" class="btn btn-outline-success" href="{% url 'email' post.pk %}">Send a message</a>
                             {% endif %}
                             <button onclick="window.location.href='https://www.facebook.com/sharer/sharer.php?u={{ request.build_absolute_uri}}'" class="btn btn-outline-primary">
                                 Facebook
