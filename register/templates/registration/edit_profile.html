@@ -5,15 +5,47 @@
 {% block content %}
 <br><br><br><br><br>
 {% if user.is_authenticated %}
+<h2>You can edit your personal information here: <br><br><br></h2>
     <div class="container">
+     <div class="card mb-4">
       <form method="POST">
         {% csrf_token %}
-        {{ profile_form_e | crispy}}
-        {{ form_e  | crispy}}
-        <button class="btn btn-success" type="submit" value="save">Save</button>
+        <!-- {{ profile_form_e | crispy}} -->
+        <!-- {{ form_e  | crispy}} -->
+        <br>
+            <div class="col-sm-4">
+                <h4>First Name:</h4>
+                <h6>{{ form_e.first_name }}</h6>
+            </div>
+        <br>
+            <div class="col-sm-4">
+                <h4>Last Name:</h4>
+                <h6>{{ form_e.last_name }}</h6>
+            </div>
+        <br>
+            <div class="col-sm-4">
+                <h4>Age:</h4>
+                <h6>{{ profile_form_e.age }}</h6>
+            </div>
+        <br>
+            <div class="col-sm-4">
+                <h4>occupation:</h4>
+                <h6>{{ profile_form_e.occupation }}</h6>
+            </div>
+        <br>
+            <div class="col-sm-4">
+                <h4>location:</h4>
+                <h6>{{ profile_form_e.location }}</h6>
+            </div>
+        <br>
+            <div class="col-sm-4">
+                <button class="btn btn-success" type="submit" value="save" id="edit-pro">Save</button>
+            </div>
+        <br>
       </form>
       <br>
-    </div>
+    <div>
+   </div>
 
 {% else %}
   <h3>You are not allowed to see this post</h3><br>
