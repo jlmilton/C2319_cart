@@ -1,19 +1,35 @@
-{% extends 'base.html' %}
+﻿{% extends 'base.html' %}
 {% load bootstrap %}
 {% block content %}
 <br><br><br>
 {% if user.is_authenticated %}
   <h1>Items for sale</h1><br>
-    <div class="container">
-     <form method="GET">
-      <div class="form-row align-items-center">
-        <div class="col-auto">
-            {{ filter.form | bootstrap}}
-            <button type="submit" class=="btn btn-primary">Search</button>
-        </div>
+  <div class="card" id="forsale">
+  <div class="col-sm-12">
+    <form method="GET">
+
+       <div class="row">
+        <h4>&nbspTitle Contains&nbsp</4>
+        {{ filter.form.title__icontains}}
+        <div class="btt-box">
+            <button type="submit" class="btn btn-success" id="filter_but">Search</button>
+            <a href="#demo" class="btn btn-info" data-toggle="collapse" id="filter_but">Advanced Search</a>
+            <a href="{% url 'for_sale' %}" class="btn btn-danger" id="filter_but">Restet</a>
        </div>
-     </form><br>
-    </div>
+        <div id="demo" class="collapse">
+            <h4>Category&nbsp</4>
+            {{ filter.form.category}}
+            <h4><br>Price contains&nbsp</4>
+            {{ filter.form.price__icontains}}
+            <h4><br>Condition&nbsp</4>
+            {{ filter.form.condition}}
+        </div>
+        </div>
+    </form>
+  </div>
+  </div>
+
+
     <div class="center " id="cont_item">
         <div class="row">
             {% for post in filter.qs %}
