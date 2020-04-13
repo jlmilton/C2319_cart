@@ -4,7 +4,7 @@
 <title>c-2319</title>
 <head>
   <style type="text/css">
-      #element1 {float:left; color:green;}
+      #element1 {float:center; color:green;}
       #element2 {float:left; color:SlateBlue;}
       #element3 {float:left; color:Tomato;}
 
@@ -89,6 +89,71 @@
           box-shadow: 0 8px 16px 0 rgba(0,0,0,0.2), 0 6px 20px 0 rgba(0,0,0,0.19);
           width: 170px;
           position: center;
+		}
+        /*
+        .container
+        {
+        border: 2px solid green
+		}
+        .center {
+         border: 2px solid red 
+		}
+         .col-sm-4 {
+          border: 2px solid blue
+		}
+        */
+
+        #cont_item {
+          padding:-40px;
+		}
+        #indi_item {
+          margin:0px;
+		}
+        #item-img {
+         float:  center;
+         width:  330px;
+         height: 330px;
+         min-width :20% !important;
+         max-width :100% !important;
+         background-size: cover;
+         margin-left: auto;
+         margin-right: auto;
+         margin-top:20px;
+         display: block;
+         object-fit:scale-down;
+		}
+        .title_under_img{
+        text-align: center;
+        display: block;
+        width: 200px;
+        overflow: hidden;
+        white-space: nowrap;
+        text-overflow: ellipsis;
+        font-size: 20px;
+		}
+        .col-sm-4 .title_under_img {
+          margin: auto;
+          width: 90%;
+          padding: 0px;
+		}
+        .dis_under_title {
+        text-align: center;
+        display: block;
+        width: 200px;
+        overflow: hidden;
+        white-space: nowrap;
+        text-overflow: ellipsis;
+		}
+        .price_under_dis {
+         text-align: center; 
+		}
+        .col-sm-4 .dis_under_title {
+          margin: auto;
+          width: 50%;
+          padding: 0px;
+		}
+        #span_body{
+          font-size:14px;  
 		}
   </style>
 
