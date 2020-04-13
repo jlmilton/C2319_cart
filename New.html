@@ -36,3 +36,15 @@
   <meta http-equiv = "refresh" content = "2"; url ='/post' />
 {% endif %}
 {% endblock %}
+
+
+<div class="container">
+     <form method="GET">
+      <div class="form-row align-items-center">
+        <div class="col-auto">
+            {{ filter.form | bootstrap}}
+            <button type="submit" class=="btn btn-primary">Search</button>
+        </div>
+       </div>
+     </form><br>
+    </div>
