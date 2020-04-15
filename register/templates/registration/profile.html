@@ -14,55 +14,55 @@
             </div>
             <div id="same-line-2">
                 <h4>{{ user }}</h4>
-            </div><br>
+            </div><br><br>
             <div id="same-line-1">
                 <h4>Email: </h4>
             </div>
             <div id="same-line-2">
                 <h4>{{ user.email }}</h4>
-            </div><br>
+            </div><br><br>
             <div id="same-line-1">
                 <h4>First Name: </h4>
             </div>
             <div id="same-line-2">
                 <h4>{{ user.first_name }}</h4>
-            </div><br>
+            </div><br><br>
             <div id="same-line-1">
                 <h4>Last Name: </h4>
             </div>
             <div id="same-line-2">
                 <h4>{{ user.last_name }}</h4>
-            </div><br>
+            </div><br><br>
             <div id="same-line-1">
                 <h4>Age: </h4> 
             </div>
             <div id="same-line-2">
                 <h4>{{ user.userprofile.age }}</h4>
-            </div><br>
+            </div><br><br>
             <div id="same-line-1">
                 <h4>Street: </h4>
             </div>
             <div id="same-line-2">
                 <h4>{{ user.userprofile.street }}</h4>
-            </div><br>
+            </div><br><br>
             <div id="same-line-1">
                 <h4>State: </h4>
             </div>
             <div id="same-line-2">
                 <h4>{{ user.userprofile.state }}</h4>
-            </div><br>
+            </div><br><br>
             <div id="same-line-1">
                 <h4>Zip: </h4>
             </div>
             <div id="same-line-2">
                 <h4>{{ user.userprofile.zip }}</h4>
-            </div><br>
+            </div><br><br>
             <div id="same-line-1">
                 <h4>Occupation: </h4>
             </div>
             <div id="same-line-2">
                 <h4>{{ user.userprofile.get_occupation_display }}</h4>
-            </div><br><br>
+            </div><br><br><br>
             <div id="same-line-1">
               <a type="button" class="btn btn-outline-success" href="{% url 'edit_profile' %}">Edit Profile</a>
             </div>
