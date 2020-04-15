@@ -6,9 +6,9 @@ from django.contrib import messages
 
 # Create your views here.
 def home(request):
-    messages.success(request , 'Welcome back')
-    storage_1 = messages.get_messages(request)
-    return render(request, '../templates/home.html', {'title': 'Home' , 'message_1' : storage_1})
+    # messages.success(request , 'Welcome back')
+    # storage_1 = messages.get_messages(request)
+    return render(request, '../templates/home.html', {'title': 'Home'})
 
 
 def about(request):
