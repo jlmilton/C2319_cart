@@ -30,14 +30,17 @@ class UserProfileForm(forms.ModelForm):
 
     class Meta:
         model = UserProfile
-        fields = [ 'age' , 'occupation' , 'location']
+        fields = [ 'age' , 'occupation' , 'street' , 'state' , 'zip']
 
     def save(self, commit=True):
         # user = super(RegisterForm, self).save(commit=False)
         userprofile = super().save(commit=False)
         userprofile.age = self.cleaned_data['age']
         userprofile.occupation = self.cleaned_data['occupation']
-        userprofile.location = self.cleaned_data['location']
+        # userprofile.location = self.cleaned_data['location']
+        userprofile.street = self.cleaned_data['street']
+        userprofile.state = self.cleaned_data['state']
+        userprofile.zip = self.cleaned_data['zip']
         if commit:
             userprofile.save()
         return userprofile
@@ -57,14 +60,17 @@ class EditProfileForm(UserChangeForm):
 class EditProfileFormCustme(forms.ModelForm):
     class Meta:
         model = UserProfile
-        fields = [ 'age' , 'occupation' , 'location']
+        fields = [ 'age' , 'occupation' , 'street' , 'state' , 'zip']
 
     def save(self, commit=True):
         # user = super(RegisterForm, self).save(commit=False)
         userprofile = super().save(commit=False)
         userprofile.age = self.cleaned_data['age']
         userprofile.occupation = self.cleaned_data['occupation']
-        userprofile.location = self.cleaned_data['location']
+        # userprofile.location = self.cleaned_data['location']
+        userprofile.street = self.cleaned_data['street']
+        userprofile.state = self.cleaned_data['state']
+        userprofile.zip = self.cleaned_data['zip']
         if commit:
             userprofile.save()
         return userprofile

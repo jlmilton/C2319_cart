@@ -8,7 +8,7 @@
 <h2>You can edit your personal information here: <br><br><br></h2>
     <div class="container">
      <div class="card mb-4">
-      <form method="POST">
+      <form method="POST" class="form-group">
         {% csrf_token %}
         <!-- {{ profile_form_e | crispy}} -->
         <!-- {{ form_e  | crispy}} -->
@@ -25,6 +25,7 @@
         <br>
             <div class="col-sm-4">
                 <h4>Age:</h4>
+                <h6>*Must be older than 16</h6>
                 <h6>{{ profile_form_e.age }}</h6>
             </div>
         <br>
@@ -34,8 +35,18 @@
             </div>
         <br>
             <div class="col-sm-4">
-                <h4>Location:</h4>
-                <h6>{{ profile_form_e.location }}</h6>
+                <h4>Street:</h4>
+                <h6>{{ profile_form_e.street }}</h6>
+            </div>
+        <br>
+            <div class="col-sm-4">
+                <h4>State:</h4>
+                <h6>{{ profile_form_e.state }}</h6>
+            </div>
+        <br>
+            <div class="col-sm-4">
+                <h4>Zip:</h4>
+                <h6>{{ profile_form_e.zip }}</h6>
             </div>
         <br>
             <div class="col-sm-4">
