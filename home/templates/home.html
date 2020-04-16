@@ -6,6 +6,17 @@
     
     <!-- Header with full-height image -->
         {% if user.is_authenticated %}
+
+          {% if messages %}
+            {% for message in messages %}
+                {% if "account_create" in message.tags %}
+                    <div class="alert alert-success" role="account_create">
+                    <p class="{{ message.tags }}" id="message-center">{{ message }}</p>
+                {% endif %}
+            {% endfor %}
+            </div>
+          {% endif %}
+
         <header class="bgimg-2 w3-display-container w3-grayscale-min" id="home">
         {% else %}
         <header class="bgimg-1 w3-display-container w3-grayscale-min" id="home" >

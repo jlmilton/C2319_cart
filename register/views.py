@@ -34,7 +34,7 @@ def register(response):
             recipient_list = [user.email]
             message = """Welcome to College Market, the best way to buy and sell stuff online to other students, staff and faclty members."""
             send_mail(subject , message , email_from , recipient_list)
-
+            messages.success(response, 'Your account has been created successfully!', extra_tags='account_create')
             return redirect('/')
             #messages.success(response , 'Your profile has been created.')
     else:
@@ -56,6 +56,7 @@ def edit_profile(response , pk=None):
             profile.user = user
             profile.save()
 
+            messages.success(response, 'Your information has been updated successfully!', extra_tags='info_update')
             return redirect('/account/profile')
     else:
         form_e = EditProfileForm(instance=response.user)
@@ -83,6 +84,7 @@ def change_password(response):
         if form.is_valid():
             form.save()
             update_session_auth_hash(response , form.user)
+            messages.success(response, 'Your password has been updated successfully!', extra_tags='password_update')
             return redirect('/account/profile')
         else:
             return redirect('/account/-change-password')

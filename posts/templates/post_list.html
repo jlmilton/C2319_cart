@@ -3,7 +3,19 @@
 {% block content %}
 <br><br><br>
 {% if user.is_authenticated %}
-    
+    {% if messages %}
+        {% for message in messages %}
+            {% if "add" in message.tags %}
+                <div class="alert alert-success" role="add">
+                <p class="{{ message.tags }}" id="message-center">{{ message }}</p>
+            {% elif "delete" in message.tags %}
+                <div class="alert alert-danger" role="delete">
+                <p class="{{ message.tags }}" id="message-center">{{ message }}</p>
+            {% endif %}
+        {% endfor %}
+        </div>
+    {% endif %}
+
     <h1>My Items</h1>
         <div class="center " id="cont_item">
             <div class="row">

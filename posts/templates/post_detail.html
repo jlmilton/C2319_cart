@@ -2,6 +2,18 @@
 {% block content %}
 <br><br><br>
 {% if user.is_authenticated and post.publish == 1 or user == post.user%}
+    {% if messages %}
+        {% for message in messages %}
+            {% if "edit" in message.tags %}
+                <div class="alert alert-success" role="edit">
+                <p class="{{ message.tags }}" id="message-center">{{ message }}</p>
+            {% elif "send" in message.tags %}
+                <div class="alert alert-info" role="send">
+                <p class="{{ message.tags }}" id="message-center">{{ message }}</p>
+            {% endif %}
+        {% endfor %}
+        </div>
+    {% endif %}
 
 <div class="container">
         <div class="center">

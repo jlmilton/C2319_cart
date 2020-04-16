@@ -6,6 +6,7 @@ from .forms import ContactForm
 from django.contrib.auth.models import User
 from posts.models import Post
 from django.conf import settings
+from django.contrib import messages
 
 
 
@@ -41,6 +42,7 @@ def emailView(request , pk=None):
             except BadHeaderError:
                 return HttpResponse('Invalid header found.')
 
+            messages.success(request, 'Your email was successfully sent!', extra_tags='send')
             return redirect('/post/' + str(pk))
 
     return render(request, "email.html", {'form': form})

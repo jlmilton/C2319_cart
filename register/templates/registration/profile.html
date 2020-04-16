@@ -3,6 +3,21 @@
 {% block content %}
 <br><br><br><br>
 {% if user.is_authenticated %}
+
+{% if messages %}
+        {% for message in messages %}
+            {% if "info_update" in message.tags %}
+                <div class="alert alert-success" role="info_update">
+                <p class="{{ message.tags }}" id="message-center">{{ message }}</p>
+            {% elif "password_update" in message.tags %}
+                <div class="alert alert-warning" role="password_update">
+                <p class="{{ message.tags }}" id="message-center">{{ message }}</p>
+            {% endif %}
+        {% endfor %}
+        </div>
+{% endif %}
+
+
 <h3>You can find all of your information here: </h3><br>
 <div class="container">
     <div class="row">
