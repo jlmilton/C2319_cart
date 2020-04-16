@@ -9,7 +9,7 @@ In order to use the web, you must be login to your account.
 
 ## Running Locally
 
-Run the following commands to get started running this app locally:
+Run the following commands to get started running this app locally (on Linux machine):
 
 ```sh
 $ git clone https://github.com/SCCapstone/C-2319.git
@@ -18,6 +18,17 @@ $ source bin/activate
 $ pip3 install -r requirements.txt
 $ python3 manage.py migrate
 $ python3 manage.py runserver
+```
+
+Run the following commands to get started running this app locally (on Windows Power Shell):
+
+```sh
+git clone https://github.com/SCCapstone/C-2319.git
+cd c-2319
+.\Scripts\activate
+pip install -r requirements.txt
+python manage.py migrate
+python manage.py runserver
 ```
 
 Then visit `http://http://127.0.0.1:8000` to play with the app.
