@@ -30,7 +30,15 @@
         <h6>Password confirmation</h6>
         <h6>{{ form.password2 }}</h6>
       </div> -->
-
+      {% if messages %}
+      {% for message in messages %}
+          {% if "email_not_edu" in message.tags %}
+              <div class="alert alert-danger" id="" role="email_not_edu">
+              <p class="{{ message.tags }}" id="message-center">{{ message }}</p>
+          {% endif %}
+      {% endfor %}
+      </div>
+    {% endif %}
             <div class="col-sm-14">
               <h6>{{ profile_form.age | as_crispy_field }}</h6>
               <h6>*must be older than 16</h6><br>

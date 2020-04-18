@@ -23,6 +23,11 @@ def register(response):
         profile_form = UserProfileForm(response.POST)
         if form.is_valid() and profile_form.is_valid():
             # form.save()
+            n = form.cleaned_data["email"]
+            if not n.endswith('.edu'):
+                # raise forms.ValidationError('Only .edu email addresses allowed')
+                messages.success(response, 'Only .edu email addresses allowed! Please try again with a valid email address.', extra_tags='email_not_edu')
+                return redirect('/register')
             user = form.save()
             profile = profile_form.save(commit=False)
             profile.user = user
