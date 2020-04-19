@@ -27,7 +27,8 @@ def register(response):
             if not n.endswith('.edu'):
                 # raise forms.ValidationError('Only .edu email addresses allowed')
                 messages.success(response, 'Only .edu email addresses allowed! Please try again with a valid email address.', extra_tags='email_not_edu')
-                return redirect('/register')
+                context = {'form' : form, 'profile_form' : profile_form}
+                return render(response, 'register/register.html' , context)
             user = form.save()
             profile = profile_form.save(commit=False)
             profile.user = user
