@@ -29,8 +29,8 @@ CONDITION = {
 
 class Post(models.Model):
     user = models.ForeignKey(User, on_delete=models.CASCADE, related_name="post" , null=True)
-    title = models.CharField(max_length=255)
-    body = models.TextField(null=True)
+    title = models.CharField(max_length=50)
+    body = models.TextField(null=True, max_length=300)
     updated_on = models.DateTimeField(auto_now= True)
     created_on = models.DateTimeField(auto_now_add=True, null=True)
     category = models.IntegerField(choices=CATEGORY, default=0)

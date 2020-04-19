@@ -6,15 +6,15 @@
 {% csrf_token %}
 
 <div class="field_wrapper">
-  <label fpr="{{ form.title.id_for_label }}"></label>
   {{ form.title | as_crispy_field }}
+  <h6 id="less_char">*Must be equal or less than 50 characters</h6>
 </div>
 <br>
 
 <div class="field_wrapper">
   <!-- {{ form.non_field_errors }} -->
-  <label fpr="{{ form.body.id_for_label }}"></label>
   {{ form.body | as_crispy_field}}
+  <h6 id="less_char">*Must be equal or less than 300 characters</h6>
 </div>
 <br>
 
