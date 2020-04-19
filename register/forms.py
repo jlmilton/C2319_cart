@@ -30,7 +30,7 @@ class UserProfileForm(forms.ModelForm):
 
     class Meta:
         model = UserProfile
-        fields = [ 'age' , 'occupation' , 'street' , 'state' , 'zip']
+        fields = [ 'age' , 'occupation' , 'street_address_1' , 'street_address_2' , 'city' , 'state' , 'zip']
 
     def save(self, commit=True):
         # user = super(RegisterForm, self).save(commit=False)
@@ -38,8 +38,10 @@ class UserProfileForm(forms.ModelForm):
         userprofile.age = self.cleaned_data['age']
         userprofile.occupation = self.cleaned_data['occupation']
         # userprofile.location = self.cleaned_data['location']
-        userprofile.street = self.cleaned_data['street']
+        userprofile.street_address_1 = self.cleaned_data['street_address_1']
+        userprofile.street_address_2 = self.cleaned_data['street_address_2']
         userprofile.state = self.cleaned_data['state']
+        userprofile.city = self.cleaned_data['city']
         userprofile.zip = self.cleaned_data['zip']
         if commit:
             userprofile.save()
@@ -60,7 +62,7 @@ class EditProfileForm(UserChangeForm):
 class EditProfileFormCustme(forms.ModelForm):
     class Meta:
         model = UserProfile
-        fields = [ 'age' , 'occupation' , 'street' , 'state' , 'zip']
+        fields = [ 'age' , 'occupation' , 'street_address_1' , 'street_address_2' , 'city' , 'state' , 'zip']
 
     def save(self, commit=True):
         # user = super(RegisterForm, self).save(commit=False)
@@ -68,7 +70,9 @@ class EditProfileFormCustme(forms.ModelForm):
         userprofile.age = self.cleaned_data['age']
         userprofile.occupation = self.cleaned_data['occupation']
         # userprofile.location = self.cleaned_data['location']
-        userprofile.street = self.cleaned_data['street']
+        userprofile.street_address_1 = self.cleaned_data['street_address_1']
+        userprofile.street_address_2 = self.cleaned_data['street_address_2']
+        userprofile.city = self.cleaned_data['city']
         userprofile.state = self.cleaned_data['state']
         userprofile.zip = self.cleaned_data['zip']
         if commit:
