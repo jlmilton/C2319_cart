@@ -10,6 +10,9 @@
           {% if "email_not_edu" in message.tags %}
               <div class="alert alert-danger" id="" role="email_not_edu">
               <p class="{{ message.tags }}" id="message-center">{{ message }}</p>
+          {% elif "email_not_uni" in message.tags %}
+              <div class="alert alert-danger" id="" role="email_not_uni">
+              <p class="{{ message.tags }}" id="message-center">{{ message }}</p> 
           {% endif %}
       {% endfor %}
       </div>
