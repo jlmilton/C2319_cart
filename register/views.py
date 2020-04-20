@@ -30,11 +30,12 @@ def register(response):
         if form.is_valid() and profile_form.is_valid():
             # form.save()
             n = form.cleaned_data["email"]
-            if not n.endswith('.edu'):
+            if not n.lower().endswith('.edu'):
                 # raise forms.ValidationError('Only .edu email addresses allowed')
                 messages.success(response, 'Only .edu email addresses allowed! Please try again with a valid email address.', extra_tags='email_not_edu')
                 context = {'form' : form, 'profile_form' : profile_form}
                 return render(response, 'register/register.html' , context)
+
             if User.objects.filter(email=n).exists():
                 messages.success(response, 'A user with that email address already exists', extra_tags='email_not_uni')
                 context = {'form' : form, 'profile_form' : profile_form}
