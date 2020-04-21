@@ -186,6 +186,19 @@
     #less_char {
       font-size: 14px;
     }
+    #milestone{
+      float:  center;
+    }
+    .quote {
+      margin: 0;
+      background: #eee;
+      padding: 1em;
+      border-radius: 1em;
+    }
+    .quote figcaption,
+    .quote blockquote {
+      margin: 1em;
+    }
   </style>
 
 	<!-- Required meta tags -->
@@ -209,6 +222,7 @@
       <div class="w3-hide-small">
           <a href="{% url 'home' %}" class="w3-bar-item w3-button"><i class="fa fa-home"></i> Home</a>
           <a href="{% url 'about' %}" class="w3-bar-item w3-button"><i class="fa fa-info"></i> About</a>
+          <a href="{% url 'milestone_17' %}" class="w3-bar-item w3-button"><i class="fa fa-thumb-tack"></i> Milestone-17</a>
           {% if user.is_authenticated %}
             <a href="{% url 'for_sale' %}" class="w3-bar-item w3-button"><i class="fa fa-usd"></i> Items for sale</a>
             <div class="w3-right">
@@ -237,6 +251,7 @@
     <a href="javascript:void(0)" onclick="w3_close()" class="w3-bar-item w3-button w3-large w3-padding-16"><i class="fa fa-times"></i>Close</a>
     <a href="{% url 'home' %}" class="w3-bar-item w3-button"><i class="fa fa-home"></i> Home</a>
     <a href="{% url 'about' %}" class="w3-bar-item w3-button"><i class="fa fa-info"></i> About</a>
+    <a href="{% url 'milestone_17' %}" class="w3-bar-item w3-button"><i class="fa fa-thumb-tack"></i> Milestone-17</a>
     {% if user.is_authenticated %}
         <a href="{% url 'for_sale' %}" class="w3-bar-item w3-button"><i class="fa fa-usd"></i> Items for sale</a>
         <a href="{% url 'add_post' %}" class="w3-bar-item w3-button"><i class="fa fa-plus"></i> New Posts</a>
