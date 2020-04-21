@@ -70,30 +70,3 @@ $ python manage.py collectstatic
 * Edit items
 * Send messages to sellers
 * Share items
-
-
-## Screenshots
-
-- Regsiter page
-<img src="/media/sceen_shot/c-2319 - Google Chrome 2020-04-21 06.50.51.png" alt="Regsiter" width="750"/>
-
-- Confimation Email
-<img src="/media/sceen_shot/c-2319 - Google Chrome 2020-04-21 06.53.19.png" alt="Email" width="750"/>
-
-- Profile Page
-<img src="/media/sceen_shot/c-2319 - Google Chrome 2020-04-21 06.55.31.png" alt="Profile" width="750"/>
-
-- Edit Password Page
-<img src="/media/sceen_shot/c-2319 - Google Chrome 2020-04-21 06.56.07.png" alt="Edit_Password" width="750"/>
-
-- Add Item Page
-<img src="/media/sceen_shot/c-2319 - Google Chrome 2020-04-21 06.50.51.png" alt="Add" width="750"/>
-
-- Item Page(for the seller)
-<img src="/media/sceen_shot/c-2319 - Google Chrome 2020-04-21 06.49.11.png" alt="Personal_iteam" width="750"/>
-
-- Item Page(for the buyer)
-<img src="/media/sceen_shot/c-2319 - Google Chrome 2020-04-21 06.53.54.png" alt="Buyer_Ieam" width="750"/>
-
-- Send Email Page
-<img src="/media/sceen_shot/c-2319 - Google Chrome 2020-04-21 06.54.07.png" alt="Email" width="750"/>
